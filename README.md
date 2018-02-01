@@ -1,4 +1,4 @@
 # wdi-group-project
-Matt
+Matthew
 Philip
 Modestas
