@@ -1,4 +1,4 @@
 # wdi-group-project
-Matt
+M
 Philip
-Modestas
+Mod
