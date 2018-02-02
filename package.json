@@ -1,5 +1,5 @@
 {
-  "name": "wdigroupproject",
+  "name": "GSD",
   "version": "1.0.0",
   "description": "wdi group project",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "node index.js",
     "postinstall": "bower install && gulp deploy"
   },
-  "author": "put group memeber names here",
+  "author": "Philip Forsberg, Modestas Kiudulas, Matthew Wallis",
   "license": "ISC",
   "gulp": {
     "srcDir": "src/",
