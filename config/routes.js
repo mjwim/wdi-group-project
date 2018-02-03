@@ -1,8 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const auth = require('../controllers/auth');
+const secureRoute = require('../lib/secureRoute');
 
-// Routes go here
+// Routes go here (no shit)
 
 router.route('/register')
   .post(auth.register);
