@@ -31,37 +31,37 @@ User
 
     return Trip.create([{
       location: 'London',
-      image: '',
+      image: 'https://images.pexels.com/photos/50632/pexels-photo-50632.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
       createdBy: users[0],
       bills: [],
       members: []
     },{
       location: 'Barcelona',
-      image: '',
+      image: 'http://tempemp.co/wp-content/uploads/2017/11/barcelona-cultura-historia.jpg',
       createdBy: users[1],
       bills: [],
       members: []
     },{
       location: 'Sydney',
-      image: '',
+      image: 'https://lonelyplanetimages.imgix.net/mastheads/65830387.jpg?sharp=10&vib=20&w=1200',
       createdBy: users[2],
       bills: [],
       members: []
     },{
       location: 'Berlin',
-      image: '',
+      image: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Germany/Berlin/Berlin%20getting%20there.jpg?imwidth=1400',
       createdBy: users[0],
       bills: [],
       members: []
     },{
       location: 'Oslo',
-      image: '',
+      image: 'https://www.code-conf.com/images/pages/academy2016/oslo.jpg',
       createdBy: users[1],
       bills: [],
       members: []
     },{
       location: 'New York',
-      image: '',
+      image: 'https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200',
       createdBy: users[2],
       bills: [],
       members: []
