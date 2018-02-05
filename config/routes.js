@@ -21,6 +21,9 @@ router.route('/trips/:id')
   .get(trips.show);
 // .put(trips.update);
 
+router.route('/users')
+  .get(users.index);
+
 router.route('/users/:id')
   .get(users.show);
 
