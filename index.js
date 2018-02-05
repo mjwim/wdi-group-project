@@ -26,5 +26,6 @@ app.use('/api', routes);
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 app.use(errorHandler);
 
+module.exports = app;
 
 app.listen(port, () => console.log(`Express is running on port: ${port}`));
