@@ -30,9 +30,18 @@ function createRoute(req, res, next) {
     .catch(next);
 }
 
+// function updateRoute(req, res, next) {
+//   Trip
+//     .findById(req.params.body)
+//     .exec()
+// }
+
+
+
 
 module.exports = {
   index: indexRoute,
   show: showRoute,
-  create: createRoute
+  create: createRoute,
+  update: updateRoute
 };
