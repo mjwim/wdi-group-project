@@ -13,7 +13,7 @@
   <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit</button>
 </div>
 <div>
-  <button class="button">Add bill</button>
+  <button ng-click="vm.addBill()" class="button">Add bill</button>
   <button ng-click="vm.addMember()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Add Friends</button>
 </div>
 <div class="column is-one-half">

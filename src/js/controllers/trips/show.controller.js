@@ -14,10 +14,16 @@ function TripsShowCtrl(Trip, $stateParams, $state) {
   }
 
   function addMember() {
-    console.log(vm.trip);
     vm.trip
       .$addMember();
   }
+
+  function addBill() {
+    vm.trip
+      .$addBill();
+  }
+
   vm.delete = tripDelete;
   vm.addMember = addMember;
+  vm.addBill = addBill;
 }

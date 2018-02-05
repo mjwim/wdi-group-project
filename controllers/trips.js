@@ -70,6 +70,27 @@ function addMemberRoute(req, res, next) {
     .catch(next);
 }
 
+function addBillRoute(req, res, next) {
+  req.body.createdBy = req.user;
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+      const bill = {
+        location: 'THE PUB',
+        amount: 100,
+        createdBy: req.user
+      };
+
+      trip.bills.push(bill);
+      console.log(trip);
+
+      return trip.save()
+        .then(() => res.json(bill));
+    })
+    .catch(next);
+}
 
 module.exports = {
   index: indexRoute,
@@ -77,5 +98,6 @@ module.exports = {
   create: createRoute,
   update: updateRoute,
   delete: deleteRoute,
-  addMember: addMemberRoute
+  addMember: addMemberRoute,
+  addBill: addBillRoute
 };
