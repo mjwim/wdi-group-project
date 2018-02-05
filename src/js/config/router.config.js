@@ -23,12 +23,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'TripsNewCtrl as vm'
     })
     .state('tripsIndex', {
-      url: '/trips/index',
+      url: '/trips',
       templateUrl: 'js/views/trips/index.html',
       controller: 'TripsIndexCtrl as vm'
     })
     .state('tripsEdit', {
-      url: '/trips/edit',
+      url: '/trips/edit/:id',
       templateUrl: 'js/views/trips/edit.html',
       controller: 'TripsEditCtrl as vm'
     })
