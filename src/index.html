@@ -12,21 +12,26 @@
 </head>
 <body ng-controller="MainCtrl as main">
   <header>
-  <nav class="container">
-      <ul>
-        <li class="logo"><a ui-sref="tripsIndex">GSD Trips</a></li>
-        <li class="burger" ng-click="main.navIsOpen = !main.navIsOpen">&#9776;</li>
-        <div class="dropdown" ng-class="{ 'open': main.navIsOpen }">
-          <li><a ui-sref="tripsIndex" ui-sref-active="active">All trips</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="tripsNew" ui-sref-active="active">Add a post</a></li>
-          <li ng-if="!main.isAuthenticated()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
-          <li ng-if="!main.isAuthenticated()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
-          <li ng-click="main.logout()" ng-if="main.isAuthenticated()"><a href="#">Logout</a></li>
-        </div>
-      </ul>
+    <nav class="nav has-shadow">
+      <div class="nav-left">
+        <a class="nav-item logo" ui-sref="tripsIndex">
+          GSD Trips
+        </a>
+      </div>
+      <span class="nav-toggle" ng-class="{ 'is-active': main.navIsOpen}" ng-click="main.navIsOpen = !main.navIsOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <div class="nav-right nav-menu" ng-class="{ 'is-active': main.navIsOpen}">
+        <a class="navbar-item" ui-sref="tripsIndex" ui-sref-active="active">All trips</a>
+        <a class="navbar-item" ng-if="main.isAuthenticated()" ui-sref="tripsNew" ui-sref-active="active">Add a post</a>
+        <a class="navbar-item" ng-if="!main.isAuthenticated()" ui-sref="login" ui-sref-active="active">Login</a>
+        <a class="navbar-item" ng-if="!main.isAuthenticated()" ui-sref="register" ui-sref-active="active">Register</a>
+        <a class="navbar-item" ng-if="main.isAuthenticated()" ng-click="main.logout()">Logout</a>
+      </div>
     </nav>
   </header>
-  <h1>WDI Group Project! GSD!</h1>
   <div class="container">
     <div class="message" ng-if="main.message">
       <p>{{ main.message }}</p>

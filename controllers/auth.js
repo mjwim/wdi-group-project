@@ -11,6 +11,7 @@ function register(req, res, next) {
 }
 
 function login(req, res, next) {
+  console.log('backend controller auth');
   User
     .findOne({ email: req.body.email })
     .then((user) => {
