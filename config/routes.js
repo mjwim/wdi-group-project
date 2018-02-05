@@ -17,8 +17,8 @@ router.route('/trips')
   .post(trips.create);
 
 router.route('/trips/:id')
-  .get(trips.show)
-  .put(trips.update);
+  .get(trips.show);
+// .put(trips.update);
 
 
 
