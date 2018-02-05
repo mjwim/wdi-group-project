@@ -20,9 +20,8 @@
     <h3> {{ vm.trip.createdBy.username }} </h3>
   </div>
 </div>
-  <div class="column is-one-half">
-    <google-map style="height:200px" center="{ lat: 45.5, lng: -60.2 }" message="{{ vm.trip.location }}"></google-map>
-  </div>
+<div class="column is-one-half">
+  <google-map style="height:200px" center="{ lat: vm.trip.latitude, lng: vm.trip.longitude }" message="vm.trip.location"></google-map>
 </div>
 <div class="show total-spend">
   <h3>Total Spend: £1,000,000</h3>
