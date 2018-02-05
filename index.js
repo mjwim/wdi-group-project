@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app        = express();
 const env        = app.get('env');
 
-const { port, db }    = require('./config/environment');
+const { port, dbURI }    = require('./config/environment');
 const customResponses = require('./lib/customResponses');
 const errorHandler    = require('./lib/errorHandler');
 const routes          = require('./config/routes');
@@ -14,7 +14,7 @@ const routes          = require('./config/routes');
 const dest = `${__dirname}/public`;
 
 mongoose.Promise = bluebird;
-mongoose.connect(db[env]);
+mongoose.connect(dbURI[env]);
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());

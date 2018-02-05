@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-const { db, env } = require('../config/environment');
+const { dbURI, env } = require('../config/environment');
 const User = require('../models/user');
 const Trip = require('../models/trip');
 
-mongoose.connect(db[env]);
+mongoose.connect(dbURI[env]);
 
 User.collection.drop();
 Trip.collection.drop();
