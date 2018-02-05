@@ -18,17 +18,17 @@
           GSD Trips
         </a>
       </div>
-      <span class="nav-toggle" ng-class="{ 'is-active': main.menuIsOpen}" ng-click="main.menuIsOpen = !main.menuIsOpen">
+      <span class="nav-toggle" ng-class="{ 'is-active': main.navIsOpen}" ng-click="main.navIsOpen = !main.navIsOpen">
         <span></span>
         <span></span>
         <span></span>
       </span>
-      <div class="nav-right nav-menu" ng-class="{ 'is-active': main.menuIsOpen}">
+      <div class="nav-right nav-menu" ng-class="{ 'is-active': main.navIsOpen}">
         <a class="navbar-item" ui-sref="tripsIndex" ui-sref-active="active">All trips</a>
         <a class="navbar-item" ng-if="main.isAuthenticated()" ui-sref="tripsNew" ui-sref-active="active">Add a post</a>
         <a class="navbar-item" ng-if="!main.isAuthenticated()" ui-sref="login" ui-sref-active="active">Login</a>
         <a class="navbar-item" ng-if="!main.isAuthenticated()" ui-sref="register" ui-sref-active="active">Register</a>
-        <a class="navbar-item" ng-if="main.isAuthenticated()" href="#">Logout</a>
+        <a class="navbar-item" ng-if="main.isAuthenticated()" ng-click="main.logout()">Logout</a>
       </div>
     </nav>
   </header>

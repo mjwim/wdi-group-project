@@ -10,6 +10,7 @@ function LoginCtrl($auth, $state) {
   function submit() {
     $auth.login(vm.credentials)
       .then(() => $state.go('tripsIndex'));
+    console.log(vm.credentials);
   }
 
   vm.submit = submit;
