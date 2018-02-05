@@ -9,7 +9,7 @@
     <h2><strong>{{ vm.trip.location }}</strong></h2>
     <a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
     <p>{{ vm.trip.image }}</p>
-    <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.post.createdBy.id">Delete</button>
+    <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Delete</button>
   </div>
   <div class="column is-one-half">
     <google-map style="height:200px" center="{ lat: 45.5, lng: -60.2 }" message="{{ vm.trip.location }}"></google-map>

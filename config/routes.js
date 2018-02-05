@@ -19,7 +19,8 @@ router.route('/trips')
 
 router.route('/trips/:id')
   .get(trips.show)
-  .put(secureRoute, trips.update);
+  .put(secureRoute, trips.update)
+  .delete(secureRoute, trips.delete);
 
 router.route('/users')
   .get(users.index);
