@@ -36,6 +36,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/trips/show/:id',
       templateUrl: 'js/views/trips/show.html',
       controller: 'TripsShowCtrl as vm'
+    })
+    .state('usersIndex', {
+      url: '/users',
+      templateUrl: 'js/views/users/index.html',
+      controller: 'UsersIndexCtrl as vm'
+    })
+    .state('usersShow', {
+      url: '/users/:id',
+      templateUrl: 'js/views/users/show.html',
+      controller: 'UsersShowCtrl as vm'
     });
 
 

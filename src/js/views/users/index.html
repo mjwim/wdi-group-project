@@ -1,0 +1,10 @@
+<h1>Users Index Page</h1>
+
+<div class="users columns is-multiline">
+  <div ng-repeat="user in vm.all" class="column is-one-third">
+      <a ui-sref="usersShow({ id: user.id })">
+        <img src="{{ user.image }}" alt="{{ user.username }}">
+        <p><strong>{{ user.username }}</strong></p>
+      </a>
+  </div>
+</div>
