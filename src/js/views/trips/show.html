@@ -1,11 +1,12 @@
 <h1>Show Trip Page</h1>
 
 
-<div class="row trip">
-  <div class="col-md-6">
+<div class="columns trip">
+  <div class="column is-one-half">
     <img ng-src="{{ vm.trip.image }}">
   </div>
-  <div class="col-md-6">
+  <div class="column is-one-half">
+    <h2><strong>{{ vm.trip.location }}</strong></h2>
     <a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
     <p>{{ vm.trip.image }}</p>
     <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.post.createdBy.id">Delete</button>

@@ -1,12 +1,10 @@
 <h1>Trips Index Page</h1>
 
-<div class="row trips">
-  <div ng-repeat="trip in vm.all" class="col-sm-6 col-md-4 col-lg-3">
-    <div class="trips__single">
-      <div class="trips__single-image" style="background-image:url('{{ trip.image }}')" ui-sref="tripsShow({ id: trip.id })"></div>
-      <img src="{{ trip.image }}" alt="{{ trip.location }}">
-      <p><strong>{{ trip.createdBy.username }}</strong></p>
-      <p><strong>{{ trip.id }}</strong></p>
-    </div>
+<div class="trips columns is-multiline">
+  <div ng-repeat="trip in vm.all" class="column is-one-third">
+      <a ui-sref="tripsShow({ id: trip.id })">
+        <img src="{{ trip.image }}" alt="{{ trip.location }}">
+        <p><strong>{{ trip.createdBy.username }}</strong></p>
+      </a>
   </div>
 </div>
