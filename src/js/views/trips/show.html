@@ -9,14 +9,27 @@
     <h2><strong>{{ vm.trip.location }}</strong></h2>
     <a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
     <p>{{ vm.trip.image }}</p>
+
+    <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit</button>
     <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Delete</button>
+    <button>Add bill</button>
+    <button ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Add Friends</button>
   </div>
-  <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit</button>
 </div>
-<button>Add bill</button>
-<button ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Add Friends</button>
+  <div class="members">
+    <h3> {{ vm.trip.createdBy.username }} </h3>
+  </div>
 </div>
   <div class="column is-one-half">
     <google-map style="height:200px" center="{ lat: 45.5, lng: -60.2 }" message="{{ vm.trip.location }}"></google-map>
   </div>
+</div>
+<div class="show total-spend">
+  <h3>Total Spend: £1,000,000</h3>
+</div>
+<div class="show pie-chart">
+  <h3>Pie Chart</h3>
+</div>
+<div class="show bill">
+  <h3>Bill</h3>
 </div>

@@ -6,3 +6,16 @@ $family-serif: 'Playfair Display', serif;
 $family-primary: $family-serif;
 
 @import "bulma/bulma";
+
+.show {
+  height: 200px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.members {
+  height: 100px;
+  width: 100%;
+  border: 1px solid black;
+  overflow-x: scroll;
+}
