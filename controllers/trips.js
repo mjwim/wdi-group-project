@@ -22,7 +22,17 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+
+function createRoute(req, res, next) {
+  Trip
+    .create(req.body)
+    .then(trip => res.status(201).json(trip))
+    .catch(next);
+}
+
+
 module.exports = {
   index: indexRoute,
-  show: showRoute
+  show: showRoute,
+  create: createRoute
 };

@@ -13,10 +13,13 @@ router.route('/login')
   .post(auth.login);
 
 router.route('/trips')
-  .get(trips.index);
+  .get(trips.index)
+  .post(trips.create);
 
 router.route('/trips/:id')
   .get(trips.show);
+
+
 
 router.all('/*', (req, res) => res.notFound());
 
