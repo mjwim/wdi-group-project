@@ -24,7 +24,6 @@ router.route('/trips/:id')
 router.route('/users/:id')
   .get(users.show);
 
-
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;
