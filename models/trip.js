@@ -22,9 +22,9 @@ billSchema.set('toJSON', { virtuals: true });
 const tripSchema = new mongoose.Schema({
   location: { type: String, required: true },
   image: { type: String },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User'},
   bills: [ billSchema ],
-  members: [{ type: mongoose.Schema.ObjectId, ref: 'Member', require: true }],
+  members: [{ type: mongoose.Schema.ObjectId, ref: 'Member'}],
   comments: [ commentSchema ]
 });
 

@@ -14,7 +14,7 @@ router.route('/login')
 
 router.route('/trips')
   .get(trips.index)
-  .post(trips.create);
+  .post(secureRoute, trips.create);
 
 router.route('/trips/:id')
   .get(trips.show);
