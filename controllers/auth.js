@@ -16,7 +16,6 @@ function register(req, res, next) {
 }
 
 function login(req, res, next) {
-  console.log('backend controller auth');
   User
     .findOne({ email: req.body.email })
     .then((user) => {
@@ -25,7 +24,7 @@ function login(req, res, next) {
       const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
 
       // Generate a JWT and send it to the user as part of the JSON payload
-      return res.json({ token, message: `Welcome back ${user.username}` });
+      return res.json({ token, message: `Welcome back ${user.username}`, user });
     })
     .catch(next);
 }
