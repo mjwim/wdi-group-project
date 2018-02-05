@@ -12,7 +12,7 @@ function Trip($resource) {
 
 TripBill.$inject = ['$resource'];
 function TripBill($resource) {
-  return new $resource('/api/posts/:tripId/comments/:id', { id: '@id' }, {
+  return new $resource('/api/trips/:tripId/bills/:id', { id: '@id' }, {
     update: { method: 'PUT' }
   });
 }

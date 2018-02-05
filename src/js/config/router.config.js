@@ -18,7 +18,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'RegisterCtrl as vm'
     })
     .state('tripsNew', {
-      url: '/trips/new',
+      url: '/trips/new/:id',
       templateUrl: 'js/views/trips/new.html',
       controller: 'TripsNewCtrl as vm'
     })
@@ -28,7 +28,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'TripsIndexCtrl as vm'
     })
     .state('tripsEdit', {
-      url: '/trips/edit',
+      url: '/trips/edit/:id',
       templateUrl: 'js/views/trips/edit.html',
       controller: 'TripsEditCtrl as vm'
     })
