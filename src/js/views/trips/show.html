@@ -11,6 +11,11 @@
     <p>{{ vm.trip.image }}</p>
     <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Delete</button>
   </div>
+  <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit</button>
+</div>
+<button>Add bill</button>
+<button ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Add Friends</button>
+</div>
   <div class="column is-one-half">
     <google-map style="height:200px" center="{ lat: 45.5, lng: -60.2 }" message="{{ vm.trip.location }}"></google-map>
   </div>
