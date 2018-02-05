@@ -21,6 +21,8 @@ billSchema.set('toJSON', { virtuals: true });
 
 const tripSchema = new mongoose.Schema({
   location: { type: String, required: true },
+  latitude: Number,
+  longitude: Number,
   image: { type: String },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User'},
   bills: [ billSchema ],
