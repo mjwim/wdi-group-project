@@ -15,6 +15,9 @@ router.route('/login')
 router.route('/trips')
   .get(trips.index);
 
+router.route('/trips/:id')
+  .get(trips.show);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;

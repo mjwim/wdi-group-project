@@ -9,6 +9,20 @@ function indexRoute(req, res, next) {
     .catch(next);
 }
 
+function showRoute(req, res, next) {
+  Trip
+    .findById(req.params.id)
+    .populate('createdBy')
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+
+      res.json(trip);
+    })
+    .catch(next);
+}
+
 module.exports = {
-  index: indexRoute
+  index: indexRoute,
+  show: showRoute
 };
