@@ -32,7 +32,7 @@ function createRoute(req, res, next) {
 
 function updateRoute(req, res, next) {
   Trip
-    .findById(req.params.body)
+    .findById(req.params.id)
     .exec()
     .then(trip => {
       if(!trip) return res.notFound();
@@ -44,10 +44,23 @@ function updateRoute(req, res, next) {
     .catch(next);
 }
 
+function deleteRoute(req, res, next) {
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) res.notFound();
+      return trip.remove();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
 
 module.exports = {
   index: indexRoute,
   show: showRoute,
   create: createRoute,
-  update: updateRoute
+  update: updateRoute,
+  delete: deleteRoute
 };

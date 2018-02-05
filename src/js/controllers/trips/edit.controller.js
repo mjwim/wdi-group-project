@@ -10,10 +10,12 @@ function TripsEditCtrl(Trip, $state) {
   vm.update = update;
 
   function update() {
-    Trip
-      .update({ id: $state.params.id }, vm.trip)
-      .$promise
-      .then(() => $state.go('tripsIndex'));
+    if(vm.editForm.$valid) {
+      Trip
+        .update({ id: $state.params.id }, vm.trip)
+        .$promise
+        .then(() => $state.go('tripsIndex'));
+    }
   }
 
 }
