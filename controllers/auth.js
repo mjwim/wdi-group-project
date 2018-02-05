@@ -6,7 +6,12 @@ require('../config/environment');
 function register(req, res, next) {
   User
     .create(req.body)
-    .then(() => res.json({ message: 'Registration successful'}))
+    .then(user => {
+      if(!user || !user.validatePassword(req.body.password)) return res.unauthorized();
+
+      const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
+      return res.json({ token, message: `Welcome ${user.username}`, user });
+    })
     .catch(next);
 }
 

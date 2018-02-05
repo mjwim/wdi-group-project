@@ -1,6 +1,8 @@
 /* globals api, expect, it, describe, afterEach, beforeEach */
 
-require('../spec_helper');
+require('../../spec_helper');
+
+const Trip = require('../../../models/trip');
 
 describe('Trips Controller Test', () => {
   describe('GET /api/trips', () => {
