@@ -1,13 +1,13 @@
 angular
   .module('tripsApp')
   .factory('Trip', Trip);
-  // .factory('TripBill', TripBill);
 
 Trip.$inject = ['$resource'];
 function Trip($resource) {
   return new $resource('/api/trips/:id', { id: '@id' }, {
     update: { method: 'PUT' },
-    addBill: { method: 'POST', url: '/api/trips/:id/bills' }
+    addBill: { method: 'POST', url: '/api/trips/:id/bills' },
+    addMember: { method: 'POST', url: '/api/trips/:id/members' }
   });
 }
 

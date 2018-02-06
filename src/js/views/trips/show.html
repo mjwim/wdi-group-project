@@ -16,9 +16,9 @@
     <button ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Add Friends</button>
   </div>
 </div>
-  <div class="members">
-    <h3> {{ vm.trip.createdBy.username }} </h3>
-  </div>
+<div>
+  <button ng-click="vm.addBill()" class="button">Add bill</button>
+  <button ng-click="vm.addMember()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Add Friends</button>
 </div>
 <div class="column is-one-half">
   <google-map style="height:200px" center="{ lat: vm.trip.latitude, lng: vm.trip.longitude }" message="vm.trip.location"></google-map>

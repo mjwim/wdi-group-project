@@ -22,7 +22,6 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
-
 function createRoute(req, res, next) {
   Trip
     .create(req.body)
@@ -56,11 +55,49 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function addMemberRoute(req, res, next) {
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if (!trip) return res.notFound();
+      const newMember = req.body.createdBy.id;
+      trip.members.push(newMember);
+      console.log(trip);
+      return trip.save()
+        .then(() => res.json(trip));
+    })
+    .catch(next);
+}
+
+function addBillRoute(req, res, next) {
+  req.body.createdBy = req.user;
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+      const bill = {
+        location: 'THE PUB',
+        amount: 100,
+        createdBy: req.user
+      };
+
+      trip.bills.push(bill);
+      console.log(trip);
+
+      return trip.save()
+        .then(() => res.json(bill));
+    })
+    .catch(next);
+}
 
 module.exports = {
   index: indexRoute,
   show: showRoute,
   create: createRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  addMember: addMemberRoute,
+  addBill: addBillRoute
 };
