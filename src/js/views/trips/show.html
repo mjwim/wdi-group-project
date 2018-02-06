@@ -48,10 +48,9 @@
   <h3>Angular Pie Chart</h3>
 </div>
 
-<div class="bills columns is-multiline">
-  <div ng-repeat="bill in vm.all" class="column is-one-third">
-        <p><strong>{{ bill.createdBy }}</strong></p>
-        <p><strong>{{ bill.location }}</strong></p>
-        <p><strong>{{ bill.amount }}</strong></p>
+<div class="bills columns">
+  <p><strong>BILLS</strong></p>
+  <div ng-repeat="bill in vm.trip.bills" class="column">
+        <p><span><strong>{{ bill.createdBy }}</strong></span><span><strong>{{ bill.location.name }}</strong></span><span><strong>{{ bill.amount }}</strong></span><p>
   </div>
 </div>
