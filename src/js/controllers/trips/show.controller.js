@@ -32,9 +32,14 @@ function TripsShowCtrl(Trip, User, $stateParams, $state) {
     return 4999;
   }
 
+  function yourBalance() {
+    return (totalSpend() - yourSpend());
+  }
+
   vm.delete = tripDelete;
   vm.addMember = addMember;
   vm.addBill = addBill;
   vm.totalSpend = totalSpend();
   vm.yourSpend = yourSpend();
+  vm.yourBalance = yourBalance();
 }

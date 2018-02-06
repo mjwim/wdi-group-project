@@ -48,14 +48,17 @@
   <h3>Total Spend: £<span>{{ vm.totalSpend }}</span></h3>
 </div>
 <div class="show your-spend">
-  <h3>Your Spend: £<span>{{ vm.yourSpend }}</h3>
+  <h3>Your Spend: £<span>{{ vm.yourSpend }}</span></h3>
+</div>
+<div class="show your-balance">
+  <h3>Your balance: £<span>{{ vm.yourBalance }}</span></h3>
 </div>
 
 <div class="show">
   <h3>Bills</h3>
   <div class="columns">
     <div ng-repeat="bill in vm.trip.bills" class="column">
-      <p><span><img src="{{ bill.createdBy.image }}">&nbsp;&nbsp;</span><span><strong>{{ bill.location.name }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.amount }}</strong></span><p>
+      <p><span><img src="{{ bill.createdBy.image }}">&nbsp;&nbsp;</span><span><strong>{{ bill.location.name }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.amount }}</strong></span></p>
       </div>
     </div>
   </div>
