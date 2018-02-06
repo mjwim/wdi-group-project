@@ -20,7 +20,7 @@ function TripsShowCtrl(Trip, $stateParams, $state) {
 
   function addBill() {
     Trip
-      .addBill({ tripId: vm.trip.id }, vm.bill);
+      .addBill({ tripId: vm.trip.id }, vm.bill );
   }
 
   vm.delete = tripDelete;

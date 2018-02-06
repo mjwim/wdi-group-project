@@ -12,7 +12,11 @@ commentSchema.methods.belongsTo = function commentBelongsTo(user) {
 };
 
 const billSchema = new mongoose.Schema({
-  location: { type: String, required: true },
+  location: {
+    name: { type: String, required: true },
+    lat: { type: Number, required: true },
+    lng: { type: Number, required: true }
+  },
   amount: { type: Number, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
