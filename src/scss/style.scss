@@ -8,13 +8,13 @@ $family-primary: $family-serif;
 @import "bulma/bulma";
 
 .show {
-  height: 300px;
+  height: 100px;
   width: 100%;
   border: 1px solid black;
 }
 
 .members {
-  height: 300px;
+  height: 100px;
   width: 100%;
   border: 1px solid black;
   overflow-x: scroll;

@@ -24,7 +24,17 @@ function TripsShowCtrl(Trip, User, $stateParams, $state) {
       .addBill({ tripId: vm.trip.id }, vm.bill );
   }
 
+  function totalSpend() {
+    return 9999;
+  }
+
+  function yourSpend() {
+    return 4999;
+  }
+
   vm.delete = tripDelete;
   vm.addMember = addMember;
   vm.addBill = addBill;
+  vm.totalSpend = totalSpend();
+  vm.yourSpend = yourSpend();
 }

@@ -19,7 +19,7 @@
   <img src="{{vm.trip.createdBy.image}}">
   <div class="columns">
     <div ng-repeat="member in vm.trip.members" class="column is-one-third">
-      <h3>{{ member }}</h3>
+      <img src="{{ member.image }}">
     </div>
   </div>
 </div>
@@ -43,20 +43,22 @@
     <button>Add bill</button>
   </form>
 </div>
+
 <div class="show total-spend">
-  <h3>Total Spend: £1,000,000</h3>
+  <h3>Total Spend: £<span>{{ vm.totalSpend }}</span></h3>
 </div>
 <div class="show your-spend">
-  <h3>Your Spend: £1,000</h3>
-</div>
-<div class="show pie-chart">
-  <h3>Angular Pie Chart</h3>
+  <h3>Your Spend: £<span>{{ vm.yourSpend }}</h3>
 </div>
 
 <div class="show">
-<div class="columns">
-  <div ng-repeat="bill in vm.trip.bills" class="column">
-    <p><span><strong>{{ bill.createdBy }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.location.name }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.amount }}</strong></span><p>
+  <h3>Bills</h3>
+  <div class="columns">
+    <div ng-repeat="bill in vm.trip.bills" class="column">
+      <p><span><img src="{{ bill.createdBy.image }}">&nbsp;&nbsp;</span><span><strong>{{ bill.location.name }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.amount }}</strong></span><p>
+      </div>
     </div>
-    </div>
+  </div>
+  <div class="show pie-chart">
+    <h3>Angular Pie Chart</h3>
   </div>
