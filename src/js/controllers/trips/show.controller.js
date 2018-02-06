@@ -19,7 +19,6 @@ function TripsShowCtrl(Trip, $stateParams, $state) {
   }
 
   function addBill() {
-    console.log(vm.trip);
     Trip
       .addBill({ tripId: vm.trip.id }, vm.bill );
   }
