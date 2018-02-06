@@ -2,9 +2,10 @@ angular
   .module('tripsApp')
   .controller('UsersEditCtrl', UsersEditCtrl);
 
-UsersEditCtrl.$inject = ['User', '$state', '$scope', '$rootScope'];
-function UsersEditCtrl(User, $state, $scope, $rootScope) {
+UsersEditCtrl.$inject = ['User', 'Trip', '$state', '$scope', '$rootScope'];
+function UsersEditCtrl(User, Trip, $state, $scope, $rootScope) {
   const vm = this;
+  vm.all = Trip.query();
 
   vm.user = User.get($state.params);
   vm.update = update;
