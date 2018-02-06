@@ -28,7 +28,7 @@ const tripSchema = new mongoose.Schema({
   image: { type: String },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User'},
   bills: [ billSchema ],
-  members: [{ type: mongoose.Schema.ObjectId, ref: 'Member'}],
+  members: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   comments: [ commentSchema ]
 });
 

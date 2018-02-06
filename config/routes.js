@@ -22,10 +22,10 @@ router.route('/trips/:id')
   .put(secureRoute, trips.update)
   .delete(secureRoute, trips.delete);
 
-router.route('/trips/:id/members')
+router.route('/trips/:tripId/members')
   .post(secureRoute, trips.addMember);
 
-router.route('/trips/:id/bills')
+router.route('/trips/:tripId/bills')
   .post(secureRoute, trips.addBill);
 
 router.route('/users')
