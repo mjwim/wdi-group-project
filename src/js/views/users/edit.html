@@ -1,10 +1,3 @@
-<section class="hero">
-  <div class="hero-body">
-    <h1 class="title">
-      Edit {{ vm.user.name }}
-    </h1>
-  </div>
-</section>
 <form ng-submit="vm.update()">
   <div class="field">
     <label class="label">Name</label>
@@ -14,11 +7,28 @@
   </div>
   <div class="field">
     <label class="label">Profile Picture</label>
-    <div class="field">
-      <label class="label">Profile Picture</label>
-      <div class="control">
-        <input class="input" type="text" ng-model="vm.newUser.image">
+    <div class="control">
+      <div class="file">
+        <label class="file-label">
+          <input class="file-input" type="file" ng-model="vm.user.image" image-upload>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fa fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+        </label>
       </div>
+    </div>
+  </div>
+  <div class="field" ng-if="vm.user.image">
+    <label class="label">Current Profile Picture</label>
+    <div class="control">
+      <figure class="image is-128x128">
+          <img src="{{ vm.user.image }}">
+      </figure>
     </div>
   </div>
   <div class="field is-grouped">

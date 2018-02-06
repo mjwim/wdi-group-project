@@ -1,5 +1,5 @@
 angular
-  .module('fileStackApp')
+  .module('tripsApp')
   .directive('imageUpload', imageUpload);
 
 imageUpload.$inject = ['filepickerService'];
