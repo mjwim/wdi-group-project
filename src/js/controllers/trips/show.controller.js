@@ -16,7 +16,7 @@ function TripsShowCtrl(Trip, User, $stateParams, $state) {
 
   function addMember() {
     Trip
-      .addMember({ tripId: vm.trip.id}, {memberId: vm.memberId });
+      .addMember({ tripId: vm.trip.id}, { memberId: vm.memberId });
   }
 
   function addBill() {
