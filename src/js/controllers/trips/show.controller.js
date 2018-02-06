@@ -2,10 +2,11 @@ angular
   .module('tripsApp')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', '$stateParams', '$state'];
-function TripsShowCtrl(Trip, $stateParams, $state) {
+TripsShowCtrl.$inject = ['Trip', 'User', '$stateParams', '$state'];
+function TripsShowCtrl(Trip, User, $stateParams, $state) {
   const vm = this;
   vm.trip = Trip.get($state.params);
+  vm.allUsers = User.query();
 
   function tripDelete() {
     vm.trip

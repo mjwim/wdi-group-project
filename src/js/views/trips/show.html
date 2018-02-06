@@ -17,17 +17,24 @@
 
 <div class="show members">
   <h3>Members</h3>
-  <h3>{{ vm.trip.createdBy.id }}</h3>
+  <img src="{{vm.trip.createdBy.image}}">
   <h3>{{ vm.trip.members }}</h3>
+  <div class="columns">
+    <div ng-repeat="member in vm.trip.members" class="column is-one-third">
+      <h3>{{ member }}</h3>
+    </div>
+  </div>
 </div>
-
 <div class=" show add-member">
   <form ng-submit="vm.addMember()">
-    <label>Member ID</label>
-    <input ng-model="vm.memberId">
+    <select ng-model="vm.memberId"
+            ng-options="user.id as user.username for user in vm.allUsers">
+        <option value="">Add member</option>
+    </select>
     <input type="submit" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id" value="Add Friends">
   </form>
 </div>
+
 
 <div class="show add-bill">
   <form ng-submit="vm.addBill()">
