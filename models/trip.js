@@ -20,9 +20,11 @@ const billSchema = new mongoose.Schema({
 billSchema.set('toJSON', { virtuals: true });
 
 const tripSchema = new mongoose.Schema({
-  location: { type: String, required: true },
-  latitude: Number,
-  longitude: Number,
+  location: {
+    name: { type: String, required: true },
+    lat: { type: Number, required: true },
+    lng: { type: Number, required: true }
+  },
   image: { type: String },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User'},
   bills: [ billSchema ],

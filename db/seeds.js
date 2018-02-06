@@ -30,49 +30,61 @@ User
     console.log(`${users.length} users created!`);
 
     return Trip.create([{
-      location: 'London',
-      latitude: 51.475664764,
-      longitude: -0.187999248,
+      location: {
+        name: 'London',
+        lat: 51.475664764,
+        lng: -0.187999248
+      },
       image: 'https://images.pexels.com/photos/50632/pexels-photo-50632.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
       createdBy: users[0],
       bills: [],
       members: []
     },{
-      location: 'Barcelona',
-      latitude: 41.390205,
-      longitude: 2.154007,
+      location: {
+        name: 'Barcelona',
+        lat: 41.390205,
+        lng: 2.154007
+      },
       image: 'http://tempemp.co/wp-content/uploads/2017/11/barcelona-cultura-historia.jpg',
       createdBy: users[1],
       bills: [],
       members: []
     },{
-      location: 'Sydney',
-      latitude: -33.865143,
-      longitude: 151.209900,
+      location: {
+        name: 'Sydney',
+        lat: -33.865143,
+        lng: 151.209900
+      },
       image: 'https://lonelyplanetimages.imgix.net/mastheads/65830387.jpg?sharp=10&vib=20&w=1200',
       createdBy: users[2],
       bills: [],
       members: []
     },{
-      location: 'Berlin',
-      latitude: 52.520008,
-      longitude: 13.404954,
+      location: {
+        name: 'Berlin',
+        lat: 52.520008,
+        lng: 13.404954
+      },
       image: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Germany/Berlin/Berlin%20getting%20there.jpg?imwidth=1400',
       createdBy: users[0],
       bills: [],
       members: []
     },{
-      location: 'Oslo',
-      latitude: 59.911491,
-      longitude: 10.757933,
+      location: {
+        name: 'Oslo',
+        lat: 59.911491,
+        lng: 10.757933
+      },
       image: 'https://www.code-conf.com/images/pages/academy2016/oslo.jpg',
       createdBy: users[1],
       bills: [],
       members: []
     },{
-      location: 'New York',
-      latitude: 40.730610,
-      longitude: -73.935242,
+      location: {
+        name: 'New York',
+        lat: 40.730610,
+        lng: -73.935242
+      },
       image: 'https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200',
       createdBy: users[2],
       bills: [],
