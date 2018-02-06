@@ -1,11 +1,13 @@
-const express = require('express');
-const router  = express.Router();
-const auth = require('../controllers/auth');
+const express     = require('express');
+const router      = express.Router();
+const auth        = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
-const trips = require('../controllers/trips');
-const users = require('../controllers/users');
+const trips       = require('../controllers/trips');
+const users       = require('../controllers/users');
 
 // Routes go here
+router.route('/')
+  .get(trips.home);
 
 router.route('/register')
   .post(auth.register);
