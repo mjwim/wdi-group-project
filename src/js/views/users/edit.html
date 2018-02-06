@@ -1,0 +1,32 @@
+<section class="hero">
+  <div class="hero-body">
+    <h1 class="title">
+      Edit {{ vm.user.name }}
+    </h1>
+  </div>
+</section>
+<form ng-submit="vm.update()">
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" type="text" ng-model="vm.user.name">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Profile Picture</label>
+    <div class="field">
+      <label class="label">Profile Picture</label>
+      <div class="control">
+        <input class="input" type="text" ng-model="vm.newUser.image">
+      </div>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-success">Submit</button>
+    </div>
+    <div class="control">
+      <a class="button is-text" ui-sref="usersIndex">Cancel</a>
+    </div>
+  </div>
+</form>
