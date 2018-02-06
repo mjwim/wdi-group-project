@@ -3,7 +3,7 @@
 <div class="trips columns is-multiline">
   <div ng-repeat="trip in vm.all" class="column is-one-third">
       <a ui-sref="tripsShow({ id: trip.id })">
-        <img src="{{ trip.image }}" alt="{{ trip.location }}">
+        <img src="{{ trip.image }}" alt="{{ trip.location.name }}">
         <p><strong>{{ trip.createdBy.username }}</strong></p>
       </a>
   </div>

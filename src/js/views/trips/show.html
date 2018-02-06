@@ -6,7 +6,7 @@
     <img ng-src="{{ vm.trip.image }}">
   </div>
   <div class="column is-one-half">
-    <h2><strong>{{ vm.trip.location }}</strong></h2>
+    <h2><strong>{{ vm.trip.location.name }}</strong></h2>
     <a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
 
     <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit</button>
@@ -30,7 +30,7 @@
 </div>
 
 <div class="column is-one-half">
-  <google-map style="height:200px" center="{ lat: vm.trip.latitude, lng: vm.trip.longitude }" message="vm.trip.location"></google-map>
+  <google-map style="height:200px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
 </div>
 <div class="show total-spend">
   <h3>Total Spend: £1,000,000</h3>
