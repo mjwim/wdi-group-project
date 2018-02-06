@@ -12,7 +12,7 @@ function indexRoute(req, res, next) {
 function showRoute(req, res, next) {
   Trip
     .findById(req.params.id)
-    .populate('createdBy')
+    .populate('createdBy members bills.createdBy comments.createdBy')
     .exec()
     .then((trip) => {
       if(!trip) return res.notFound();
@@ -67,12 +67,13 @@ function addMemberRoute(req, res, next) {
 
       return trip.save();
     })
-    .then((trip) => res.json(trip))
+    .then(trip => trip.populate('createdBy members bills.createdBy comments.createdBy'))
+    .then(trip => res.status(200).json(trip))
     .catch(next);
 }
 
 function addBillRoute(req, res, next) {
-  req.body.createdBy = req.user.id;
+  req.body.createdBy = req.user;
   Trip
     .findById(req.params.tripId)
     .exec()

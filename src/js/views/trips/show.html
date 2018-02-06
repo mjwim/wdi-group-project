@@ -1,7 +1,6 @@
 <h1><strong>{{ vm.trip.location.name }}</strong></h1>
 <a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
 
-
 <div class="columns is-multiline trip">
   <div class="column is-one-half">
     <img ng-src="{{ vm.trip.image }}">
@@ -24,14 +23,14 @@
     </div>
   </div>
 </div>
-<div class=" show add-member">
+<div class="show add-member">
   <form ng-submit="vm.addMember()">
     <select ng-model="vm.memberId"
-            ng-options="user.id as user.username for user in vm.allUsers">
-        <option value="">Add member</option>
-    </select>
-    <input type="submit" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id" value="Add Friends">
-  </form>
+    ng-options="user.id as user.username for user in vm.allUsers">
+    <option value="">Add member</option>
+  </select>
+  <input type="submit" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id" value="Add Friends">
+</form>
 </div>
 
 
@@ -54,9 +53,10 @@
   <h3>Angular Pie Chart</h3>
 </div>
 
-<div class="bills columns">
-  <p><strong>BILLS</strong></p>
+<div class="show">
+<div class="columns">
   <div ng-repeat="bill in vm.trip.bills" class="column">
-        <p><span><strong>{{ bill.createdBy }}</strong></span><span><strong>{{ bill.location.name }}</strong></span><span><strong>{{ bill.amount }}</strong></span><p>
+    <p><span><strong>{{ bill.createdBy }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.location.name }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.amount }}</strong></span><p>
+    </div>
+    </div>
   </div>
-</div>
