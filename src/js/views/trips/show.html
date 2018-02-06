@@ -24,8 +24,8 @@
 <div class="add-member">
   <form ng-submit="vm.addMember()">
     <label>Member ID</label>
-    <input ng-model="vm.memberId"></input>
-    <button ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Add Friends</button>
+    <input ng-model="vm.memberId">
+    <input type="submit" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id" value="Add Friends">
   </form>
 </div>
 
@@ -34,9 +34,9 @@
 <div class="add-bill">
   <form ng-submit="vm.addBill()">
     <label>Location</label>
-    <input ng-model="vm.bill.location"></input>
+    <input ng-model="vm.bill.location" google-autocomplete>
     <label>Amount</label>
-    <input ng-model="vm.bill.amount"></input>
+    <input ng-model="vm.bill.amount">
     <button>Add bill</button>
   </form>
 </div>
