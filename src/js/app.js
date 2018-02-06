@@ -1,3 +1,10 @@
 // angular module goes here
 angular
-  .module('tripsApp', ['satellizer', 'ui.router', 'ngResource', 'ngMessages']);
+  .module('tripsApp',
+    ['satellizer',
+      'ui.router',
+      'ngResource',
+      'ngMessages',
+      'angular-filepicker'
+    ]);
+    
