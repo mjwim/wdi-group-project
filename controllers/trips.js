@@ -1,5 +1,14 @@
 const Trip = require('../models/trip');
 
+function homeRoute(req, res, next) {
+  Trip
+    .find()
+    .populate('createdBy')
+    .exec()
+    .then((trips) => res.json(trips))
+    .catch(next);
+}
+
 function indexRoute(req, res, next) {
   Trip
     .find()
@@ -88,6 +97,7 @@ function addBillRoute(req, res, next) {
 }
 
 module.exports = {
+  home: homeRoute,
   index: indexRoute,
   show: showRoute,
   create: createRoute,
