@@ -1,4 +1,5 @@
 <h1><strong>{{ vm.trip.location.name }}</strong></h1>
+<a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
 
 
 <div class="columns is-multiline trip">
@@ -9,7 +10,6 @@
     <google-map style="height:200px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
   </div>
   <div class="column is-one-half">
-    <a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
     <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit</button>
     <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Delete</button>
   </div>
