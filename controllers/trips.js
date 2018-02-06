@@ -57,38 +57,32 @@ function deleteRoute(req, res, next) {
 
 function addMemberRoute(req, res, next) {
   Trip
-    .findById(req.params.id)
+    .findById(req.params.tripId)
     .exec()
     .then((trip) => {
       if (!trip) return res.notFound();
-      const newMember = req.body.createdBy.id;
-      trip.members.push(newMember);
-      console.log(trip);
-      return trip.save()
-        .then(() => res.json(trip));
+
+      trip.members.push(req.body.memberId);
+
+      return trip.save();
     })
+    .then((trip) => res.json(trip))
     .catch(next);
 }
 
 function addBillRoute(req, res, next) {
-  req.body.createdBy = req.user;
+  req.body.createdBy = req.user.id;
   Trip
-    .findById(req.params.id)
+    .findById(req.params.tripId)
     .exec()
     .then((trip) => {
       if(!trip) return res.notFound();
-      const bill = {
-        location: 'THE PUB',
-        amount: 100,
-        createdBy: req.user
-      };
 
-      trip.bills.push(bill);
-      console.log(trip);
+      trip.bills.push(req.body);
 
-      return trip.save()
-        .then(() => res.json(bill));
+      return trip.save();
     })
+    .then((bill) => res.json(bill))
     .catch(next);
 }
 

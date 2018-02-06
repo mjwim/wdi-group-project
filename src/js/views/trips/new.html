@@ -1,14 +1,32 @@
 <h1>New Trips Page</h1>
-<form name="vm.newForm" ng-submit="vm.create()" novalidate>
-  <div class="form-group">
-    <label for="location">Location</label>
-    <input type="text" id="location" name="location" ng-model="vm.trip.location">
-  </div>
 
-  <div class="form-group">
-    <label for="image">Image</label>
-    <input type="text" id="image" name="image" ng-model="vm.trip.image">
-  </div>
+<section class="section">
+  <div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+      <form name="vm.newForm" ng-submit="vm.create()" novalidate>
+        <div class="field">
+          <label class="label" for="location">Location</label>
+          <p class="control">
+            <input class="input" type="text" id="location" name="location" ng-model="vm.trip.location" google-autocomplete>
+            <input type="hidden" name="lat" id="lat" ng-model="vm.trip.location.lat">
+            <input type="hidden" name="lng" id="lng" ng-model="vm.trip.location.lng">
+          </p>
+        </div>
 
-  <input type="submit" value="Add Trip">
-</form>
+        <div class="field">
+          <label class="label" for="image">Image</label>
+          <p class="control">
+            <input class="input" type="text" id="image" name="image" ng-model="vm.trip.image">
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button is-primary is-fullwidth" value="Add Trip">
+          </p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
