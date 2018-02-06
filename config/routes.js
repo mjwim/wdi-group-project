@@ -22,6 +22,12 @@ router.route('/trips/:id')
   .put(secureRoute, trips.update)
   .delete(secureRoute, trips.delete);
 
+router.route('/trips/:id/members')
+  .post(secureRoute, trips.addMember);
+
+router.route('/trips/:id/bills')
+  .post(secureRoute, trips.addBill);
+
 router.route('/users')
   .get(users.index);
 

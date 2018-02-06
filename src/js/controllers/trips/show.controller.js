@@ -12,5 +12,18 @@ function TripsShowCtrl(Trip, $stateParams, $state) {
       .$remove()
       .then(()=> $state.go('tripsIndex'));
   }
+
+  function addMember() {
+    vm.trip
+      .$addMember();
+  }
+
+  function addBill() {
+    vm.trip
+      .$addBill();
+  }
+
   vm.delete = tripDelete;
+  vm.addMember = addMember;
+  vm.addBill = addBill;
 }
