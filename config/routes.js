@@ -32,7 +32,9 @@ router.route('/users')
   .get(users.index);
 
 router.route('/users/:id')
-  .get(users.show);
+  .get(users.show)
+  .put(secureRoute, users.update)
+  .delete(users.delete);
 
 router.all('/*', (req, res) => res.notFound());
 

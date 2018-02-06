@@ -79,7 +79,6 @@ function addBillRoute(req, res, next) {
       if(!trip) return res.notFound();
 
       trip.bills.push(req.body);
-
       return trip.save();
     })
     .then((bill) => res.json(bill))
