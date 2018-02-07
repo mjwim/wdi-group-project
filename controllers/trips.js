@@ -33,6 +33,8 @@ function showRoute(req, res, next) {
 
 function createRoute(req, res, next) {
   req.body.createdBy = req.user.id;
+  req.body.members.push(req.user.id);
+  
   Trip
     .create(req.body)
     .then(trip => res.status(201).json(trip))
