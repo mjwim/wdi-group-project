@@ -5,6 +5,7 @@ angular
 TripsEditCtrl.$inject = ['Trip', '$state'];
 function TripsEditCtrl(Trip, $state) {
   const vm = this;
+  vm.all = Trip.query();
 
   vm.trip = Trip.get($state.params);
   vm.update = update;

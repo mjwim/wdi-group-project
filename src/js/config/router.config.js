@@ -7,6 +7,11 @@ Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
   $stateProvider
+    .state('tripsHome', {
+      url: '/',
+      templateUrl: 'js/views/trips/home.html',
+      controller: 'TripsHomeCtrl as vm'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'js/views/auth/login.html',

@@ -1,6 +1,5 @@
-<h1><strong>{{ vm.trip.location.name }}</strong></h1>
+<h2><strong>{{ vm.trip.location.name }}</strong></h2>
 <a ui-sref="usersShow({id:vm.trip.createdBy.id})"><h3>{{ vm.trip.createdBy.username }}</h3></a>
-
 
 <div class="columns is-multiline trip">
   <div class="column is-one-half">
@@ -10,24 +9,34 @@
     <google-map style="height:200px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
   </div>
   <div class="column is-one-half">
-    <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit</button>
-    <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Delete</button>
+    <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button is-primary" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit Trip</button>
+    <button ng-click="vm.delete()" class="button is-danger" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Delete Trip</button>
   </div>
 </div>
 
 <div class="show members">
   <h3>Members</h3>
-  <h3>{{ vm.trip.createdBy.id }}</h3>
-  <h3>{{ vm.trip.members }}</h3>
+  <div class="columns is-mobile">
+    <div class="column is-one-third">
+      <p>Trip Captian</p>
+      <div class="image-container" style="background-image: url('{{vm.trip.createdBy.image}}')"></div>
+    </div>
+    <div ng-repeat="member in vm.trip.members" class="members-container column is-one-third">
+      <div class="image-container" style="background-image: url('{{ member.image }}')"></div>
+    </div>
+  </div>
 </div>
 
-<div class=" show add-member">
+<div class="show add-member" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">
   <form ng-submit="vm.addMember()">
-    <label>Member ID</label>
-    <input ng-model="vm.memberId">
-    <input type="submit" class="button" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id" value="Add Friends">
-  </form>
+    <select ng-model="vm.memberId"
+    ng-options="user.id as user.username for user in vm.allUsers">
+    <option value="">Add member</option>
+  </select>
+  <input type="submit" class="button is-primary" value="Add Friends">
+</form>
 </div>
+
 
 <div class="show add-bill">
   <form ng-submit="vm.addBill()">
@@ -35,28 +44,31 @@
     <input ng-model="vm.bill.location" google-autocomplete>
     <label>Amount</label>
     <input ng-model="vm.bill.amount">
-    <button>Add bill</button>
+    <input type="submit" class="button is-primary" value="Add bill">
   </form>
 </div>
+
 <div class="show total-spend">
-  <h3>Total Spend: £1,000,000</h3>
+  <h3>Total Spend: £<span>{{ vm.totalSpend }}</span></h3>
 </div>
 <div class="show your-spend">
-  <h3>Your Spend: £1,000</h3>
+  <h3>Your Spend: £<span>{{ vm.yourSpend }}</span></h3>
+</div>
+<div class="show your-balance">
+  <h3>Your balance: £<span>{{ vm.yourBalance }}</span></h3>
+</div>
+
+<div class="show">
+  <h3>Bills</h3>
+  <div class="columns">
+    <div ng-repeat="bill in vm.trip.bills" class="column">
+      <p><span><img src="{{ bill.createdBy.image }}">&nbsp;&nbsp;</span><span><strong>{{ bill.location.name }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.amount }}</strong></span></p>
+    </div>
+  </div>
 </div>
 <div class="show pie-chart">
   <h3>Angular Pie Chart</h3>
-
-  <canvas id="pie" class="chart chart-pie"
-    chart-data="data" chart-labels="labels" chart-options="options">
-  </canvas>
-
-</div>
-
-<div class="bills columns is-multiline">
-  <div ng-repeat="bill in vm.all" class="column is-one-third">
-        <p><strong>{{ bill.createdBy }}</strong></p>
-        <p><strong>{{ bill.location }}</strong></p>
-        <p><strong>{{ bill.amount }}</strong></p>
-  </div>
+    <canvas id="pie" class="chart chart-pie"
+      chart-data="data" chart-labels="labels" chart-options="options">
+    </canvas>
 </div>

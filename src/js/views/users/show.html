@@ -1,3 +1,11 @@
-<h3>{{ vm.user.username }}'s trips</h3>
+<h3><strong>{{ vm.user.username }}</strong></h3>
 
-<img src="{{ vm.user.image }}" alt="{{ vm.user.name }}">
+<div class="columns is-multiline trip">
+  <div class="column is-one-half">
+    <img ng-src="{{ vm.user.image }}">
+  </div>
+  <div class="column is-one-half">
+    <button ui-sref="userEdit({ id: vm.user.id })" class="button" ng-if="main.isAuthenticated()">Edit</button>
+    <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated()">Delete</button>
+  </div>
+</div>

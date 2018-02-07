@@ -1,4 +1,5 @@
 @import "bulma/sass/utilities/initial-variables";
+@import "phil-carousel";
 
 $primary: #6ab5ff;
 $danger: #f9628b;
@@ -7,15 +8,45 @@ $family-primary: $family-serif;
 
 @import "bulma/bulma";
 
+main {
+  max-width: 95%;
+  margin: 15px auto 0 auto;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.image-container {
+  width: 100%;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+
+h2 {
+  text-align: center;
+}
+
+select {
+  font-size: 16px;
+}
+
 .show {
-  height: 200px;
+  min-height: 100px;
   width: 100%;
   border: 1px solid black;
 }
 
 .members {
-  height: 100px;
   width: 100%;
   border: 1px solid black;
   overflow-x: scroll;
+  .column {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
 }
