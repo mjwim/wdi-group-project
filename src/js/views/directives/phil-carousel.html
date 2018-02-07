@@ -1,0 +1,21 @@
+<div class="callout-text">
+	<div class="trip-carousel">
+		<!-- Circled Left 2 icon by Icons8 -->
+		<div class="icon-container icon-container-left">
+			<span class="lnr lnr-arrow-left-circle"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+		</div>
+		<div class="trip-items">
+			<div class="trip-item slide-{{ $index + 1 }}" ng-repeat="trip in slides | limitTo: 6">
+        <div style="background-image: url('{{ trip.image }}')" class="trip-item-inner">
+  				<blockquote>
+  					<p class="trip-quote">{{ trip.location.name }}</p>
+  				</blockquote>
+        </div>
+			</div>
+		</div>
+		<!-- End .trip-items -->
+		<div class="icon-container icon-container-right">
+			<span class="lnr lnr-arrow-right-circle"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,116 @@
+h4 {
+	font-family: 'Lato', sans-serif;
+	font-size: 2em;
+	@media (min-width: 768px) {
+		font-size: 3em;
+	}
+}
+
+.callout-text {
+	text-align: center;
+	max-width: 1140px;
+	margin: 20px auto;
+}
+
+.trip-item-inner {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trip-carousel {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+	height: 500px;
+	position: relative;
+	padding: 0;
+	display: flex;
+  // styles the arrow buttons
+	.icon-container {
+		position: absolute;
+		padding: 0 5px;
+		max-width: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+    &.icon-container-left {
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+    &.icon-container-right {
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+		@media (min-width: 768px) {
+			max-width: 50px;
+			padding: 0 10px;
+		}
+		span.lnr {
+			color: #dadada;
+			font-size: 1.6em;
+			cursor: pointer;
+			transition: color 0.3s linear;
+			@media (min-width: 768px) {
+				font-size: 2.6em;
+			}
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+	p {
+		font-family: 'Bad Script', cursive;
+		font-size: 1em;
+		@media (min-width: 768px) {
+			font-size: 1.4em;
+		}
+	}
+}
+
+.trip-items {
+	position: relative;
+	flex: 1;
+	overflow: hidden;
+	color: #fff;
+}
+
+.trip-item {
+	width: 100%;
+	height: 100%;
+	transition: transform 1s;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	p.trip-author {
+		font-weight: bold;
+		text-align: right;
+	}
+	&.slide-1 {
+		left: 0;
+	}
+	&.slide-2  {
+		left: 100%;
+	}
+	&.slide-3  {
+		left: 200%;
+	}
+	&.slide-4  {
+		left: 300%;
+	}
+	&.slide-5  {
+		left: 400%;
+	}
+	&.slide-6  {
+		left: 500%;
+	}
+}
