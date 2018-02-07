@@ -60,15 +60,24 @@
 
 <div class="show">
   <h3>Bills</h3>
-  <div class="columns">
-    <div ng-repeat="bill in vm.trip.bills" class="column">
-      <p><span><img src="{{ bill.createdBy.image }}">&nbsp;&nbsp;</span><span><strong>{{ bill.location.name }}&nbsp;&nbsp;</strong></span><span><strong>{{ bill.amount }}</strong></span></p>
+  <div ng-repeat="bill in vm.trip.bills" class="column">
+    <div class="level">
+      <div class="image-container" style="background-image: url('{{bill.createdBy.image}}')"></div>
+    <div class="level-right">
+      <div class="level-item">
+        <div>{{ bill.location.name }}</div>
+      </div>
+      <div class="level-item">
+        <div>{{ bill.amount }}</div>
+      </div>
     </div>
   </div>
 </div>
+</div>
+
 <div class="show pie-chart">
   <h3>Angular Pie Chart</h3>
-    <canvas id="pie" class="chart chart-pie"
-      chart-data="data" chart-labels="labels" chart-options="options">
-    </canvas>
+  <canvas id="pie" class="chart chart-pie"
+  chart-data="data" chart-labels="labels" chart-options="options">
+</canvas>
 </div>
