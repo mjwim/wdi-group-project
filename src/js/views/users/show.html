@@ -9,3 +9,12 @@
     <button ng-click="vm.deleteUser()" class="button is-danger" ng-if="main.isAuthenticated()">Delete</button>
   </div>
 </div>
+
+<div class="columns is-multiline">
+  <div ng-repeat="trip in vm.user.trips" class="column is-one-third">
+      <a ui-sref="tripsShow({ id: trip.id })">
+        <img src="{{ trip.image }}" alt="{{ trip.name }}">
+        <p><strong>{{ trip.location.name }}</strong></p>
+      </a>
+  </div>
+</div>
