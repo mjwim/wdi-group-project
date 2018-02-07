@@ -2,10 +2,23 @@ angular
   .module('tripsApp')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', 'User', '$stateParams', '$state'];
-function TripsShowCtrl(Trip, User, $stateParams, $state) {
+TripsShowCtrl.$inject = ['Trip', 'User', '$stateParams', '$state', '$auth'];
+function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   const vm = this;
   vm.trip = Trip.get($state.params);
+
+  Trip
+    .get($stateParams)
+    .$promise
+    .then(res => {
+      vm.trip = res;
+    })
+    .then(() => {
+      vm.totalSpend = totalSpend();
+      vm.yourSpend = yourSpend();
+      vm.yourBalance = yourBalance();
+    });
+
   vm.allUsers = User.query();
 
   function tripDelete() {
@@ -25,11 +38,18 @@ function TripsShowCtrl(Trip, User, $stateParams, $state) {
   }
 
   function totalSpend() {
-    return 9999;
+    const billsArray =  vm.trip.bills;
+    return billsArray.reduce((sum, bill) => {
+      return sum + bill.amount;
+    }, 0);
   }
 
   function yourSpend() {
-    return 4999;
+    const billsArray =  vm.trip.bills;
+    return billsArray.reduce((sum, bill) => {
+      const amountToAdd = bill.createdBy.id === $auth.getPayload().userId ? bill.amount : 0;
+      return sum + amountToAdd;
+    }, 0);
   }
 
   function yourBalance() {
@@ -39,7 +59,5 @@ function TripsShowCtrl(Trip, User, $stateParams, $state) {
   vm.delete = tripDelete;
   vm.addMember = addMember;
   vm.addBill = addBill;
-  vm.totalSpend = totalSpend();
-  vm.yourSpend = yourSpend();
-  vm.yourBalance = yourBalance();
+
 }
