@@ -60,4 +60,7 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   vm.addMember = addMember;
   vm.addBill = addBill;
 
+  vm.labels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  vm.data = [300, 500, 100];
+
 }
