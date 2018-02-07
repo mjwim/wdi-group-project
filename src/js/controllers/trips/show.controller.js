@@ -23,6 +23,9 @@ function TripsShowCtrl(Trip, $stateParams, $state) {
       .addBill({ tripId: vm.trip.id }, vm.bill );
   }
 
+  vm.labels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  vm.data = [300, 500, 100];
+
   vm.delete = tripDelete;
   vm.addMember = addMember;
   vm.addBill = addBill;

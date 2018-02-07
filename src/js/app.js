@@ -5,6 +5,6 @@ angular
       'ui.router',
       'ngResource',
       'ngMessages',
-      'angular-filepicker'
+      'angular-filepicker',
+      'chart.js'
     ]);
-    
