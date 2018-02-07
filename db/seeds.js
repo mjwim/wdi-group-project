@@ -15,22 +15,19 @@ User
     email: 'modestas@ga.co',
     password: 'password',
     passwordConfirmation: 'password',
-    image: 'https://media.licdn.com/mpr/mpr/shrink_100_100/AAMAAgDGAAwAAQAAAAAAAA53AAAAJGE1N2RkMWMzLTg0Y2ItNDBjMC05NGE3LTljMzFmMGE2Y2Q4ZQ.jpg',
-    trips: []
+    image: 'https://media.licdn.com/mpr/mpr/shrink_100_100/AAMAAgDGAAwAAQAAAAAAAA53AAAAJGE1N2RkMWMzLTg0Y2ItNDBjMC05NGE3LTljMzFmMGE2Y2Q4ZQ.jpg'
   }, {
     username: 'philip',
     email: 'philip@ga.co',
     password: 'password',
     passwordConfirmation: 'password',
-    image: 'https://cdn.images.express.co.uk/img/dynamic/106/590x/prince-philip-435380.jpg',
-    trips: []
+    image: 'https://cdn.images.express.co.uk/img/dynamic/106/590x/prince-philip-435380.jpg'
   }, {
     username: 'matt',
     email: 'matt@ga.co',
     password: 'password',
     passwordConfirmation: 'password',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Matt_Damon_TIFF_2015.jpg/220px-Matt_Damon_TIFF_2015.jpg',
-    trips: []
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Matt_Damon_TIFF_2015.jpg/220px-Matt_Damon_TIFF_2015.jpg'
   }])
   .then((users) => {
     console.log(`${users.length} users created!`);

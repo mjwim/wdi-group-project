@@ -5,8 +5,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  image: { type: String },
-  trips: []
+  image: { type: String }
 });
 
 userSchema
@@ -33,7 +32,12 @@ userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-userSchema.set('toJSON', { virtuals: true });
+userSchema.virtual('trips', {
+  ref: 'Trip',
+  localField: '_id',
+  foreignField: 'members'
+});
 
+userSchema.set('toJSON', { virtuals: true });
 
 module.exports = mongoose.model('User', userSchema);
