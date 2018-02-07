@@ -8,7 +8,7 @@ describe('Trips Controller Test', () => {
   describe('GET /api/trips', () => {
     it('should return a 200 response', done => {
       api
-        .get('/api/shoes')
+        .get('/api/trips')
         .set('Accept', 'application/json')
         .expect(200, done);
     });
