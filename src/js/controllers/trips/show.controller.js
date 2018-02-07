@@ -1,6 +1,6 @@
 angular
-  .module('tripsApp')
-  .controller('TripsShowCtrl', TripsShowCtrl);
+.module('tripsApp')
+.controller('TripsShowCtrl', TripsShowCtrl);
 
 TripsShowCtrl.$inject = ['Trip', 'User', '$stateParams', '$state', '$auth'];
 function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
@@ -17,6 +17,11 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
       vm.totalSpend = totalSpend();
       vm.yourSpend = yourSpend();
       vm.yourBalance = yourBalance();
+
+      vm.labels = vm.trip.members.map(member => member.username);
+      vm.memberTotalBillAmounts = [];
+
+      calculateMembersTotalSpend();
     });
 
   vm.allUsers = User.query();
@@ -44,6 +49,20 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
     }, 0);
   }
 
+  function calculateMembersTotalSpend() {
+    vm.trip.members.forEach(member => {
+      const allMemberBills = vm.trip.bills.map(bill => {
+        if(bill.createdBy.id === member.id) return bill.amount;
+      }).filter(Number);
+
+      const totalMemberSpend = (allMemberBills.length !== 0) ? allMemberBills.reduce((a, b) => a + b) : 0;
+
+      vm.memberTotalBillAmounts.push(totalMemberSpend);
+    });
+  }
+
+
+
   function yourSpend() {
     const billsArray =  vm.trip.bills;
     return billsArray.reduce((sum, bill) => {
@@ -59,8 +78,5 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   vm.delete = tripDelete;
   vm.addMember = addMember;
   vm.addBill = addBill;
-
-  vm.labels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  vm.data = [300, 500, 100];
 
 }
