@@ -20,8 +20,8 @@ describe('Users Controller Tests', () => {
         .post('/api/register')
         .set('Accept', 'application/json')
         .send({
-          username: 'test',
-          email: 'test@test.com',
+          username: 'userTester',
+          email: 'userTest@test.com',
           password: 'password',
           passwordConfirmation: 'password'
         })
@@ -55,7 +55,8 @@ describe('Users Controller Tests', () => {
               'username',
               'email',
               'password',
-              'passwordConfirmation'
+              'passwordConfirmation',
+              'trips'
             ]);
 
           done();
