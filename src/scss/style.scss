@@ -3,14 +3,15 @@
 
 $primary: #6ab5ff;
 $danger: #f9628b;
-$family-serif: 'Playfair Display', serif;
+$family-serif: 'PT Sans Narrow', sans-serif;
 $family-primary: $family-serif;
 
 @import "bulma/bulma";
-
+//
 // *{
 //   border: solid 1px blue;
 // }
+
 
 main {
   max-width: 95%;
@@ -51,6 +52,7 @@ img {
   background-size: cover;
   background-position: center;
   border-radius: 50%;
+  border: solid 1px white;
 }
 
 .image-trip {
@@ -58,6 +60,7 @@ img {
   padding-top: 100%;
   background-size: cover;
   background-position: center;
+  border: solid 1px white;
 }
 
 h2 {
@@ -75,19 +78,29 @@ select {
 .show {
   min-height: 100px;
   width: 100%;
-  border: 1px solid black;
 }
 
 .members {
   width: 100%;
   min-height: 160px;
-  border: 1px solid black;
   overflow-x: scroll;
   .column {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
   }
+}
+
+.add-width {
+    margin: 0 auto;
+    text-align: center;
+    select {
+      margin: 5px auto 5px auto;
+      width: 375px;
+    }
+    input {
+      width: 375px;
+    }
 }
 
 .bills {

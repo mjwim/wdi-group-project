@@ -3,7 +3,7 @@
 
 <div class="columns is-multiline trip">
   <div class="column is-one-half">
-    <img ng-src="{{ vm.trip.image }}">
+    <div class="image-trip" style="background-image: url('{{ vm.trip.image }}')" alt="{{ vm.trip.location.name }}"></div>
   </div>
   <div class="column is-one-half">
     <google-map style="height:200px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
@@ -27,34 +27,46 @@
 
 <div class="show add-member" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">
   <form ng-submit="vm.addMember()">
-    <div class="select">
-      <select ng-model="vm.memberId" ng-options="user.id as user.username for user in vm.allUsers">
-        <option value="">Add member</option>
+    <div class="control add-width">
+      <div class="select">
+        <select ng-model="vm.memberId" ng-options="user.id as user.username for user in vm.allUsers">
+          <option value="">Add member</option>
+        </select>
         <input type="submit" class="button is-primary" value="Add Friends">
-      </select>
+      </div>
     </div>
   </form>
 </div>
 
+<h3><strong>Add Bills</strong></h3>
 <div class="show add-bill">
   <form ng-submit="vm.addBill()">
-    <label>Location</label>
-    <input ng-model="vm.bill.location" google-autocomplete>
-    <label>Amount</label>
-    <input ng-model="vm.bill.amount">
+    <div class="field">
+      <label class="label">Location</label>
+      <div class="control">
+        <input class="input" ng-model="vm.bill.location" google-autocomplete>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Amount</label>
+      <input class="input" ng-model="vm.bill.amount" placeholder="Enter amount">
+    </div>
     <input type="submit" class="button is-primary" value="Add bill">
   </form>
 </div>
 
-<div class="show total-spend">
-  <h3>Total Spend: £<span>{{ vm.totalSpend }}</span></h3>
+<div class="balance columns is-multiline">
+  <div class="column is-half">
+    <h3>Total spend: £<span>{{ vm.totalSpend }}</span></h3>
+  </div>
+  <div class="column is-half">
+    <h3>Your spend: £<span>{{ vm.yourSpend }}</span></h3>
+  </div>
+  <div class="column">
+    <h3><strong>Your balance:</strong> £<span>{{ vm.yourBalance }}</span></h3>
+  </div>
 </div>
-<div class="show your-spend">
-  <h3>Your Spend: £<span>{{ vm.yourSpend }}</span></h3>
-</div>
-<div class="show your-balance">
-  <h3>Your balance: £<span>{{ vm.yourBalance }}</span></h3>
-</div>
+
 
 <h3><strong>Bills</strong></h3>
 <div class="show bills">

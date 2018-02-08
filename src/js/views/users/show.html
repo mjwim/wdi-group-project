@@ -12,8 +12,8 @@
 <div class="columns is-multiline">
   <div ng-repeat="trip in vm.user.trips" class="column is-one-third">
       <a ui-sref="tripsShow({ id: trip.id })">
-        <img src="{{ trip.image }}" alt="{{ trip.name }}">
-        <p><strong>{{ trip.location.name }}</strong></p>
+        <h3><strong>{{ trip.location.name }}</strong></h3>
+        <div class="image-trip" style="background-image: url('{{ trip.image }}')" alt="{{ trip.location.name }}"></div>
       </a>
   </div>
 </div>
