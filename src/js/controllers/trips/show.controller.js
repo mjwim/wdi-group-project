@@ -83,7 +83,7 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   }
 
   function yourBalance() {
-    return (yourSpend() - totalSpend()/(vm.trip.members.length + 1));
+    return (yourSpend() - totalSpend()/(vm.trip.members.length));
   }
 
 
