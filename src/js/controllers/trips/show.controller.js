@@ -15,15 +15,14 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
       vm.trip = res;
     })
     .then(() => {
-      vm.totalSpend = totalSpend();
-      vm.yourSpend = yourSpend();
-      vm.yourBalance = yourBalance();
+      totalSpend();
+      yourSpend();
 
+      vm.currentUser = User.get({ id: $auth.getPayload().userId });
       vm.labels = vm.trip.members.map(member => member.username);
       vm.memberTotalBillAmounts = [];
-
       vm.allMemberIds = vm.trip.members.map(member => member.id);
-
+      vm.yourBalance = yourBalance();
       calculateMembersTotalSpend();
     });
 
@@ -50,14 +49,17 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
       .$promise
       .then((response)=> {
         vm.trip = response;
-      });
-  }
 
-  function totalSpend() {
-    const billsArray =  vm.trip.bills;
-    return billsArray.reduce((sum, bill) => {
-      return sum + bill.amount;
-    }, 0);
+        const newBillAmount = parseInt(vm.bill.amount);
+
+        const index = vm.labels.indexOf(vm.currentUser.username);
+        vm.memberTotalBillAmounts[index] += newBillAmount;
+
+        vm.totalSpend += newBillAmount;
+        vm.yourSpend += newBillAmount;
+
+        vm.yourBalance = yourBalance();
+      });
   }
 
   function calculateMembersTotalSpend() {
@@ -72,18 +74,25 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
     });
   }
 
-
+  function totalSpend() {
+    const billsArray =  vm.trip.bills;
+    vm.totalSpend =  billsArray.reduce((sum, bill) => {
+      return sum + bill.amount;
+    }, 0);
+    return vm.totalSpend;
+  }
 
   function yourSpend() {
     const billsArray =  vm.trip.bills;
-    return billsArray.reduce((sum, bill) => {
+    vm.yourSpend = billsArray.reduce((sum, bill) => {
       const amountToAdd = bill.createdBy.id === $auth.getPayload().userId ? bill.amount : 0;
       return sum + amountToAdd;
     }, 0);
+    return vm.yourSpend;
   }
 
   function yourBalance() {
-    return (yourSpend() - totalSpend()/(vm.trip.members.length));
+    return Math.floor(vm.yourSpend - vm.totalSpend/(vm.trip.members.length));
   }
 
 
