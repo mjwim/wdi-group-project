@@ -6,5 +6,6 @@ angular
       'ngResource',
       'ngMessages',
       'angular-filepicker',
-      'chart.js'
+      'chart.js',
+      'ngMessages'
     ]);
