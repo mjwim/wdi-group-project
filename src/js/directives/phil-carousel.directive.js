@@ -14,7 +14,7 @@ function philCarousel() {
     link(scope, element) {
       scope.$watch('slides', () => {
         if (!scope.slides) return false;
-        setTimeout(initCarousel);
+        setTimeout(initCarousel, 100);
       });
 
       function initCarousel(){
