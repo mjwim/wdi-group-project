@@ -55,7 +55,8 @@ describe('Users Controller Tests', () => {
               'username',
               'email',
               'password',
-              'passwordConfirmation'
+              'passwordConfirmation',
+              'trips'
             ]);
 
           done();
