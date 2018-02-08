@@ -6,7 +6,7 @@
     <div class="image-trip" style="background-image: url('{{ vm.trip.image }}')" alt="{{ vm.trip.location.name }}"></div>
   </div>
   <div class="column is-one-half">
-    <google-map style="height:200px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
+    <google-map style="height:288px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
   </div>
   <div class="column is-one-half user-info">
     <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button is-primary" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit Trip</button>
@@ -14,7 +14,7 @@
   </div>
 </div>
 
-
+<hr>
 <h3><strong>Members</strong></h3>
 <div class="show members">
   <p>Trip Captain</p>
