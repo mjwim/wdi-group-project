@@ -22,6 +22,8 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
       vm.labels = vm.trip.members.map(member => member.username);
       vm.memberTotalBillAmounts = [];
 
+      vm.allMemberIds = vm.trip.members.map(member => member.id);
+
       calculateMembersTotalSpend();
     });
 
@@ -38,7 +40,6 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
       .addMember({ tripId: vm.trip.id}, { memberId: vm.memberId })
       .$promise
       .then((response)=> {
-        console.log(response);
         vm.trip = response;
       });
   }
@@ -48,7 +49,6 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
       .addBill({ tripId: vm.trip.id }, vm.bill )
       .$promise
       .then((response)=> {
-        console.log(response);
         vm.trip = response;
       });
   }
@@ -90,5 +90,4 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   vm.delete = tripDelete;
   vm.addMember = addMember;
   vm.addBill = addBill;
-
 }

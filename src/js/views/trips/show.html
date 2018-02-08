@@ -38,56 +38,60 @@
   </form>
 </div>
 
-<h3><strong>Add Bills</strong></h3>
-<div class="show add-bill">
-  <form ng-submit="vm.addBill()">
-    <div class="field">
-      <label class="label">Location</label>
-      <div class="control">
-        <input class="input" ng-model="vm.bill.location" google-autocomplete>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Amount</label>
-      <input class="input" ng-model="vm.bill.amount" placeholder="Enter amount">
-    </div>
-    <input type="submit" class="button is-primary" value="Add bill">
-  </form>
-</div>
 
-<div class="balance columns is-multiline">
-  <div class="column is-half">
-    <h3>Total spend: £<span>{{ vm.totalSpend }}</span></h3>
-  </div>
-  <div class="column is-half">
-    <h3>Your spend: £<span>{{ vm.yourSpend }}</span></h3>
-  </div>
-  <div class="column">
-    <h3><strong>Your balance:</strong> £<span>{{ vm.yourBalance }}</span></h3>
-  </div>
-</div>
+<div ng-if="main.isAuthenticated() && vm.allMemberIds.includes(main.currentUserId)">
 
-
-<h3><strong>Bills</strong></h3>
-<div class="show bills">
-  <div class="columns is-mobile is-multiline">
-    <div ng-repeat="bill in vm.trip.bills" class="members-container column is-one-third">
-      <div class="columns">
-        <div class="column is-one-third">
-          <div class="image-container" style="background-image: url('{{ bill.createdBy.image }}')"></div>
-        </div>
-        <div class="column is-one-third">
-          <p><strong>{{ bill.location.name }}</strong></p>
-        </div>
-        <div class="column is-one-third">
-          <p><strong>£ {{ bill.amount }}</strong></p>
+  <h3><strong>Add Bills</strong></h3>
+  <div class="show add-bill">
+    <form ng-submit="vm.addBill()">
+      <div class="field">
+        <label class="label">Location</label>
+        <div class="control">
+          <input class="input" ng-model="vm.bill.location" google-autocomplete>
         </div>
       </div>
+      <div class="field">
+        <label class="label">Amount</label>
+        <input class="input" ng-model="vm.bill.amount" placeholder="Enter amount">
+      </div>
+      <input type="submit" class="button is-primary" value="Add bill">
+    </form>
+  </div>
+
+  <div class="balance columns is-multiline">
+    <div class="column is-half">
+      <h3>Total spend: £<span>{{ vm.totalSpend }}</span></h3>
+    </div>
+    <div class="column is-half">
+      <h3>Your spend: £<span>{{ vm.yourSpend }}</span></h3>
+    </div>
+    <div class="column">
+      <h3><strong>Your balance:</strong> £<span>{{ vm.yourBalance }}</span></h3>
     </div>
   </div>
-</div>
 
-<div class="show pie-chart">
-  <canvas id="pie" class="chart chart-pie"
-  chart-data="vm.memberTotalBillAmounts" chart-labels="vm.labels"></canvas>
+
+  <h3><strong>Bills</strong></h3>
+  <div class="show bills">
+    <div class="columns is-mobile is-multiline">
+      <div ng-repeat="bill in vm.trip.bills" class="members-container column is-one-third">
+        <div class="columns">
+          <div class="column is-one-third">
+            <div class="image-container" style="background-image: url('{{ bill.createdBy.image }}')"></div>
+          </div>
+          <div class="column is-one-third">
+            <p><strong>{{ bill.location.name }}</strong></p>
+          </div>
+          <div class="column is-one-third">
+            <p><strong>£ {{ bill.amount }}</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="show pie-chart">
+    <canvas id="pie" class="chart chart-pie"
+    chart-data="vm.memberTotalBillAmounts" chart-labels="vm.labels"></canvas>
+  </div>
 </div>
