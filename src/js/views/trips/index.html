@@ -3,8 +3,38 @@
 <div class="trips columns is-multiline">
   <div ng-repeat="trip in vm.all" class="column is-one-third">
       <a ui-sref="tripsShow({ id: trip.id })">
-        <img src="{{ trip.image }}" alt="{{ trip.location.name }}">
-        <p><strong>{{ trip.createdBy.username }}</strong></p>
+        <div class="image-trip" style="background-image: url('{{ trip.image }}')" alt="{{ trip.location.name }}"></div>
+      </a>
+      <a ui-sref="usersShow({ id: trip.createdBy.id })">
+        <h3><strong>Trip Creator: </strong>{{ trip.createdBy.username }}</h3>
       </a>
   </div>
 </div>
+
+<!--
+<div class="trips columns is-multiline">
+  <div ng-repeat="trip in vm.all" class="column is-one-third">
+        <div class="image-trip hovereffect" style="background-image: url('{{ trip.image }}')" alt="{{ trip.location.name }}">
+          <div class="overlay">
+            <h3><strong>{{ trip.location.name }}</strong></h3>
+            <h3><strong>Trip Creator: </strong>{{ trip.createdBy.username }}</h3>
+            <p>
+              <a ui-sref="tripsShow({ id: trip.id })"></a>
+            </p>
+          </div>
+        </div>
+  </div>
+</div> -->
+
+<!--
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="hovereffect">
+        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
+            <div class="overlay">
+                <h2>Effect 14</h2>
+				<p>
+					<a href="#">LINK HERE</a>
+				</p>
+            </div>
+    </div>
+</div> -->
