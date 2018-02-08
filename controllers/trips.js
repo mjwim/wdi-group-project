@@ -1,4 +1,5 @@
 const Trip = require('../models/trip');
+const User = require('../models/user');
 
 function homeRoute(req, res, next) {
   Trip
@@ -21,7 +22,7 @@ function indexRoute(req, res, next) {
 function showRoute(req, res, next) {
   Trip
     .findById(req.params.id)
-    .populate('createdBy members bills.createdBy comments.createdBy')
+    .populate('createdBy members bills.createdBy')
     .exec()
     .then((trip) => {
       if(!trip) return res.notFound();
@@ -33,10 +34,14 @@ function showRoute(req, res, next) {
 
 function createRoute(req, res, next) {
   req.body.createdBy = req.user.id;
-  req.body.members.push(req.user.id);
-  
+
   Trip
     .create(req.body)
+    .then((trip) => {
+      console.log(trip);
+      trip.members.push(req.user.id);
+      return trip.save();
+    })
     .then(trip => res.status(201).json(trip))
     .catch(next);
 }
@@ -70,15 +75,16 @@ function deleteRoute(req, res, next) {
 function addMemberRoute(req, res, next) {
   Trip
     .findById(req.params.tripId)
+    .populate('createdBy members bills.createdBy')
     .exec()
     .then((trip) => {
       if (!trip) return res.notFound();
 
-      trip.members.push(req.body.memberId);
-
-      return trip.save();
+      return User.findById(req.body.memberId)
+        .then((user) => trip.members.push(user))
+        .then(() => trip.save());
     })
-    .then(trip => trip.populate('createdBy members bills.createdBy comments.createdBy'))
+    .then(trip => trip.populate('createdBy members bills.createdBy'))
     .then(trip => res.status(200).json(trip))
     .catch(next);
 }
@@ -87,6 +93,7 @@ function addBillRoute(req, res, next) {
   req.body.createdBy = req.user;
   Trip
     .findById(req.params.tripId)
+    .populate('createdBy members bills.createdBy')
     .exec()
     .then((trip) => {
       if(!trip) return res.notFound();

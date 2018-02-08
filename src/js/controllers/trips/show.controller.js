@@ -35,12 +35,22 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
 
   function addMember() {
     Trip
-      .addMember({ tripId: vm.trip.id}, { memberId: vm.memberId });
+      .addMember({ tripId: vm.trip.id}, { memberId: vm.memberId })
+      .$promise
+      .then((response)=> {
+        console.log(response);
+        vm.trip = response;
+      });
   }
 
   function addBill() {
     Trip
-      .addBill({ tripId: vm.trip.id }, vm.bill );
+      .addBill({ tripId: vm.trip.id }, vm.bill )
+      .$promise
+      .then((response)=> {
+        console.log(response);
+        vm.trip = response;
+      });
   }
 
   function totalSpend() {

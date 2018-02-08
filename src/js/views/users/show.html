@@ -1,12 +1,11 @@
-<h3><strong>{{ vm.user.username }}</strong></h3>
-
 <div class="columns is-multiline trip">
   <div class="column is-one-half">
-    <img ng-src="{{ vm.user.image }}">
+    <div class="image-container" style="background-image: url('{{ vm.user.image }}')" alt="{{ vm.user.username }}"></div>
   </div>
-  <div class="column is-one-half">
-    <button ui-sref="usersEdit({ id: vm.user.id })" class="button is-primary" ng-if="main.isAuthenticated()">Edit</button>
-    <button ng-click="vm.deleteUser()" class="button is-danger" ng-if="main.isAuthenticated()">Delete</button>
+  <div class="column user-info is-one-half">
+    <h3><strong>{{ vm.user.username }}</strong></h3>
+    <button ui-sref="usersEdit({ id: vm.user.id })" class="button is-primary" ng-if="main.isAuthenticated() && main.currentUserId === vm.user.id">Edit</button>
+    <button ng-click="vm.deleteUser()" class="button is-danger" ng-if="main.isAuthenticated() && main.currentUserId === vm.user.id">Delete</button>
   </div>
 </div>
 
