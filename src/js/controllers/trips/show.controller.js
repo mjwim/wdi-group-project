@@ -1,6 +1,6 @@
 angular
-.module('tripsApp')
-.controller('TripsShowCtrl', TripsShowCtrl);
+  .module('tripsApp')
+  .controller('TripsShowCtrl', TripsShowCtrl);
 
 TripsShowCtrl.$inject = ['Trip', 'User', '$stateParams', '$state', '$auth'];
 function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
@@ -73,7 +73,7 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   }
 
   function yourBalance() {
-    return (totalSpend() - yourSpend());
+    return (yourSpend() - totalSpend()/(vm.trip.members.length + 1));
   }
 
 

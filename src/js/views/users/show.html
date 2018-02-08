@@ -5,7 +5,16 @@
     <img ng-src="{{ vm.user.image }}">
   </div>
   <div class="column is-one-half">
-    <button ui-sref="userEdit({ id: vm.user.id })" class="button" ng-if="main.isAuthenticated()">Edit</button>
-    <button ng-click="vm.delete()" class="button" ng-if="main.isAuthenticated()">Delete</button>
+    <button ui-sref="usersEdit({ id: vm.user.id })" class="button is-primary" ng-if="main.isAuthenticated()">Edit</button>
+    <button ng-click="vm.deleteUser()" class="button is-danger" ng-if="main.isAuthenticated()">Delete</button>
+  </div>
+</div>
+
+<div class="columns is-multiline">
+  <div ng-repeat="trip in vm.user.trips" class="column is-one-third">
+      <a ui-sref="tripsShow({ id: trip.id })">
+        <img src="{{ trip.image }}" alt="{{ trip.name }}">
+        <p><strong>{{ trip.location.name }}</strong></p>
+      </a>
   </div>
 </div>

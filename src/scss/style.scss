@@ -8,6 +8,10 @@ $family-primary: $family-serif;
 
 @import "bulma/bulma";
 
+// *{
+//   border: solid 1px blue;
+// }
+
 main {
   max-width: 95%;
   margin: 15px auto 0 auto;
@@ -25,8 +29,11 @@ img {
   border-radius: 50%;
 }
 
-
 h2 {
+  text-align: center;
+}
+
+h3 {
   text-align: center;
 }
 
