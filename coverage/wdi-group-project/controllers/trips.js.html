@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">51.28% </span>
+        <span class="strong">53.49% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>20/39</span>
+        <span class='fraction'>23/43</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">30% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>3/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">57.14% </span>
+        <span class="strong">54.17% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>12/21</span>
+        <span class='fraction'>13/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.82% </span>
+        <span class="strong">60.53% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>20/34</span>
+        <span class='fraction'>23/38</span>
       </div>
     </div>
   </div>
@@ -153,7 +153,15 @@
 108
 109
 110
-111</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+111
+112
+113
+114
+115
+116
+117
+118</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -188,8 +196,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -227,11 +239,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -241,6 +254,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -264,6 +278,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Trip = require('../models/trip');
+const User = require('../models/user');
 &nbsp;
 function <span class="fstat-no" title="function not covered" >homeRoute(</span>req, res, next) {
 <span class="cstat-no" title="statement not covered" >  Trip</span>
@@ -286,7 +301,7 @@ function indexRoute(req, res, next) {
 function showRoute(req, res, next) {
   Trip
     .findById(req.params.id)
-    .populate('createdBy members bills.createdBy comments.createdBy')
+    .populate('createdBy members bills.createdBy')
     .exec()
     .then((trip) =&gt; {
       <span class="missing-if-branch" title="if path not taken" >I</span>if(!trip) <span class="cstat-no" title="statement not covered" >return res.notFound();</span>
@@ -296,20 +311,16 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 &nbsp;
-<<<<<<< HEAD
 function createRoute(req, res, next) {
   req.body.createdBy = req.user.id;
-  req.body.members.push(req.user.id);
-  
+&nbsp;
   Trip
-=======
-function <span class="fstat-no" title="function not covered" >createRoute(</span>req, res, next) {
-<span class="cstat-no" title="statement not covered" >  req.body.createdBy = req.user.id;</span>
-<span class="cstat-no" title="statement not covered" >  req.body.members.push(req.user.id);</span>
-
-<span class="cstat-no" title="statement not covered" >  Trip</span>
->>>>>>> development
     .create(req.body)
+    .then((trip) =&gt; {
+      console.log(trip);
+      trip.members.push(req.user.id);
+      return trip.save();
+    })
     .then(trip =&gt; res.status(201).json(trip))
     .catch(next);
 }
@@ -343,15 +354,16 @@ function deleteRoute(req, res, next) {
 function <span class="fstat-no" title="function not covered" >addMemberRoute(</span>req, res, next) {
 <span class="cstat-no" title="statement not covered" >  Trip</span>
     .findById(req.params.tripId)
+    .populate('createdBy members bills.createdBy')
     .exec()
     .then(<span class="fstat-no" title="function not covered" >(t</span>rip) =&gt; {
 <span class="cstat-no" title="statement not covered" >      if (!trip) <span class="cstat-no" title="statement not covered" >return res.notFound();</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      trip.members.push(req.body.memberId);</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      return trip.save();</span>
+<span class="cstat-no" title="statement not covered" >      return User.findById(req.body.memberId)</span>
+        .then(<span class="fstat-no" title="function not covered" >(u</span>ser) =&gt; <span class="cstat-no" title="statement not covered" >trip.members.push(user))</span>
+        .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >trip.save())</span>;
     })
-    .then(<span class="fstat-no" title="function not covered" >tr</span>ip =&gt; <span class="cstat-no" title="statement not covered" >trip.populate('createdBy members bills.createdBy comments.createdBy'))</span>
+    .then(<span class="fstat-no" title="function not covered" >tr</span>ip =&gt; <span class="cstat-no" title="statement not covered" >trip.populate('createdBy members bills.createdBy'))</span>
     .then(<span class="fstat-no" title="function not covered" >tr</span>ip =&gt; <span class="cstat-no" title="statement not covered" >res.status(200).json(trip))</span>
     .catch(next);
 }
@@ -360,6 +372,7 @@ function <span class="fstat-no" title="function not covered" >addBillRoute(</spa
 <span class="cstat-no" title="statement not covered" >  req.body.createdBy = req.user;</span>
 <span class="cstat-no" title="statement not covered" >  Trip</span>
     .findById(req.params.tripId)
+    .populate('createdBy members bills.createdBy')
     .exec()
     .then(<span class="fstat-no" title="function not covered" >(t</span>rip) =&gt; {
 <span class="cstat-no" title="statement not covered" >      if(!trip) <span class="cstat-no" title="statement not covered" >return res.notFound();</span></span>
@@ -387,11 +400,7 @@ module.exports = {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-<<<<<<< HEAD
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 08 2018 15:25:05 GMT+0000 (GMT)
-=======
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 08 2018 11:08:06 GMT+0000 (GMT)
->>>>>>> development
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 08 2018 15:37:02 GMT+0000 (GMT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
