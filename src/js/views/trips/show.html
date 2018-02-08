@@ -17,9 +17,9 @@
 
 <h3><strong>Members</strong></h3>
 <div class="show members">
-  <p>Trip Captian</p>
+  <p>Trip Captain</p>
   <div class="columns is-mobile">
-    <div ng-repeat="member in vm.trip.members" class="members-container column is-one-third">
+    <div ng-repeat="member in vm.trip.members track by $index" class="members-container column is-one-third">
       <div class="image-container" style="background-image: url('{{ member.image }}')"></div>
     </div>
   </div>
@@ -68,7 +68,7 @@
           <p><strong>{{ bill.location.name }}</strong></p>
         </div>
         <div class="column is-one-third">
-          <p><strong>{{ bill.amount }}</strong></p>
+          <p><strong>£ {{ bill.amount }}</strong></p>
         </div>
       </div>
     </div>
