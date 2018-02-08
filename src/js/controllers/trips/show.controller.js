@@ -5,6 +5,7 @@ angular
 TripsShowCtrl.$inject = ['Trip', 'User', '$stateParams', '$state', '$auth'];
 function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   const vm = this;
+
   vm.trip = Trip.get($state.params);
 
   Trip
@@ -74,6 +75,7 @@ function TripsShowCtrl(Trip, User, $stateParams, $state, $auth) {
   function yourBalance() {
     return (totalSpend() - yourSpend());
   }
+
 
   vm.delete = tripDelete;
   vm.addMember = addMember;

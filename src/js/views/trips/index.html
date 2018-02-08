@@ -1,7 +1,8 @@
 <h2>Trips Index Page</h2>
 
 <div class="trips columns is-multiline">
-  <div ng-repeat="trip in vm.all" class="column is-one-third">
+  <input type="text" name="search"  placeholder="Search..." ng-model="vm.searchBoxValue">
+  <div ng-repeat="trip in vm.filtered | filter: { name: vm.searchBoxValue }" class="column is-one-third">
       <a ui-sref="tripsShow({ id: trip.id })">
         <img src="{{ trip.image }}" alt="{{ trip.location.name }}">
         <p><strong>{{ trip.createdBy.username }}</strong></p>
