@@ -1,14 +1,18 @@
-<h2><strong>{{ vm.trip.location.name }}</strong></h2>
-<h3>Trip Captain: <a ui-sref="usersShow({id:vm.trip.createdBy.id})">{{ vm.trip.createdBy.username }}</a></h3>
 
-<div class="columns is-multiline trip">
-  <div class="column is-one-half">
+<div class="trip">
+  <div>
     <div class="image-trip" style="background-image: url('{{ vm.trip.image }}')" alt="{{ vm.trip.location.name }}"></div>
   </div>
-  <div class="column is-one-half">
+  <div>
+    <h2><strong>{{ vm.trip.location.name }}</strong></h2>
+  </div>
+  <div>
+    <h3><a ui-sref="usersShow({id:vm.trip.createdBy.id})">{{ vm.trip.createdBy.username }}</a>'s Trip'</h3>
+  </div>
+  <div>
     <google-map style="height:200px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
   </div>
-  <div class="column is-one-half user-info">
+  <div class="user-info">
     <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button is-primary" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit Trip</button>
     <button ng-click="vm.delete()" class="button is-danger" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Delete Trip</button>
   </div>
@@ -17,7 +21,6 @@
 
 <h3><strong>Members</strong></h3>
 <div class="show members">
-  <p>Trip Captain</p>
   <div class="columns is-mobile">
     <div ng-repeat="member in vm.trip.members track by $index" class="members-container column is-one-third">
       <div class="image-container" style="background-image: url('{{ member.image }}')"></div>
