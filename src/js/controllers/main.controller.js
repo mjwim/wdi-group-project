@@ -19,6 +19,8 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
   });
 
   $transitions.onSuccess({}, (transition) => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+
     vm.navIsOpen = false;
     vm.pageName = transition.$to().name;
 

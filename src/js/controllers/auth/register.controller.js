@@ -8,6 +8,8 @@ function RegisterCtrl($auth, $state) {
   vm.user = {};
 
   function submit() {
+    vm.user.image = 'http://www.fillmurray.com/300/300';
+
     $auth.signup(vm.user)
       .then(() => $state.go('login'));
   }
