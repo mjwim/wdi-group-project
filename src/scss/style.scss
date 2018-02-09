@@ -7,10 +7,6 @@ $family-serif: 'PT Sans Narrow', sans-serif;
 $family-primary: $family-serif;
 
 @import "bulma/bulma";
-//
-// *{
-//   border: solid 1px blue;
-// }
 
 main {
   max-width: 95%;
@@ -107,8 +103,9 @@ select {
 }
 
 .user-info {
-  margin: 0 auto;
+  margin: 15px auto;
   text-align: center;
+
 }
 
 footer {
