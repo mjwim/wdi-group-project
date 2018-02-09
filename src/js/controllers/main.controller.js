@@ -31,7 +31,11 @@ function MainCtrl($rootScope, $state, $auth, $transitions, User) {
 
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
-    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+    if($auth.getPayload()) {
+      vm.currentUserId = $auth.getPayload().userId;
+
+      vm.currentUser = User.get({ id: $auth.getPayload().userId});
+    }
   });
 
   function logout() {
