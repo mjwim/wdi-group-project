@@ -1,14 +1,17 @@
 
 <div class="trip">
   <div>
-    <div class="image-trip" style="background-image: url('{{ vm.trip.image }}')" alt="{{ vm.trip.location.name }}"></div>
+    <div class="image-trip" style="background-image: url('{{ vm.trip.image }}')" alt="{{ vm.trip.location.name }}">
+      <blockquote>
+        <p class="trip-quote">{{ vm.trip.location.name }}</p>
+      </blockquote>
+    </div>
   </div>
-  <div>
-    <h2><strong>{{ vm.trip.location.name }}</strong></h2>
-  </div>
+  <br>
   <div>
     <h3><a ui-sref="usersShow({id:vm.trip.createdBy.id})">{{ vm.trip.createdBy.username }}</a>'s Trip'</h3>
   </div>
+  <br>
   <div>
     <google-map style="height:288px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
   </div>

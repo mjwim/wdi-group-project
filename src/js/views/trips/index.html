@@ -5,7 +5,11 @@
 <div class="trips columns is-multiline">
   <div ng-repeat="trip in vm.filtered" class="column is-one-third">
       <a ui-sref="tripsShow({ id: trip.id })">
-        <div class="image-trip" style="background-image: url('{{ trip.image }}')" alt="{{ trip.location.name }}"></div>
+        <div class="image-trip" style="background-image: url('{{ trip.image }}')" alt="{{ trip.location.name }}">
+          <blockquote>
+  					<p class="trip-quote">{{ trip.location.name }}</p>
+  				</blockquote>
+        </div>
       </a>
       <a ui-sref="usersShow({ id: trip.createdBy.id })">
         <h3>{{ trip.createdBy.username }}</h3>
