@@ -1,16 +1,19 @@
 
 <div class="trip">
   <div>
-    <div class="image-trip" style="background-image: url('{{ vm.trip.image }}')" alt="{{ vm.trip.location.name }}"></div>
+    <div class="image-trip" style="background-image: url('{{ vm.trip.image }}')" alt="{{ vm.trip.location.name }}">
+      <blockquote>
+        <p class="trip-quote">{{ vm.trip.location.name }}</p>
+      </blockquote>
+    </div>
   </div>
-  <div>
-    <h2><strong>{{ vm.trip.location.name }}</strong></h2>
-  </div>
+  <br>
   <div>
     <h3><a ui-sref="usersShow({id:vm.trip.createdBy.id})">{{ vm.trip.createdBy.username }}</a>'s Trip'</h3>
   </div>
+  <br>
   <div>
-    <google-map style="height:200px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
+    <google-map style="height:288px" center="{ lat: vm.trip.location.lat, lng: vm.trip.location.lng }" message="vm.trip.location.name"></google-map>
   </div>
   <div class="user-info">
     <button ui-sref="tripsEdit({ id: vm.trip.id })" class="button is-primary" ng-if="main.isAuthenticated() && main.currentUserId === vm.trip.createdBy.id">Edit Trip</button>
@@ -18,7 +21,7 @@
   </div>
 </div>
 
-
+<hr>
 <h3><strong>Members</strong></h3>
 <div class="show members">
   <div class="columns is-mobile">
@@ -73,7 +76,7 @@
     </div>
   </div>
 
-
+  <hr>
   <h3><strong>Bills</strong></h3>
   <div class="show bills">
     <div class="columns is-mobile is-multiline">
@@ -92,9 +95,11 @@
       </div>
     </div>
   </div>
+  <hr>
 
   <div class="show pie-chart">
     <canvas id="pie" class="chart chart-pie"
     chart-data="vm.memberTotalBillAmounts" chart-labels="vm.labels"></canvas>
   </div>
 </div>
+<hr>
