@@ -116,14 +116,16 @@ select {
     }
 }
 
-.bills {
-
+.profile {
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  border: 2px solid black;
 }
 
 .user-info {
   margin: 15px auto;
   text-align: center;
-
 }
 
 footer {
