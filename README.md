@@ -1,8 +1,8 @@
-## SPLITTIN
+<img width="639" alt="screen shot 2018-02-09 at 13 08 29" src="https://user-images.githubusercontent.com/25264577/37279711-795844f6-25e3-11e8-82bc-43bee1388fd0.png">
 
-###What is SPLITTIN
+###What is SPLITTN
 
-SPLITTIN is an app that allows you to set up a holiday with friends and keep track of bills that individuals have paid for on behalf of the whole group.
+SPLITTN is an app that allows you to set up a holiday with friends and keep track of bills that individuals have paid for on behalf of the whole group.
  
 During the trip you can upload bills and tag them to the place where they were incurred. You can then see how much you have spent as a group, how much you have spent as an induividual and whether you owe your friends or they owe you.
 
@@ -14,7 +14,7 @@ An user can register/login and then view their profile page, which will show the
 
 On an individual trip page, the creator can add friends to the trip
 
-Pics of trip page, with a friend added
+<img width="506" alt="screen shot 2018-03-01 at 18 48 04" src="https://user-images.githubusercontent.com/25264577/37279745-97ed8318-25e3-11e8-92dc-e35a74961499.png">
 
 Any member of the trip can then add a bill, which is tagged to the location of where it was incurred.
 
@@ -22,7 +22,9 @@ On adding a bill this will update the total group expenditure and the individual
 
 Additionally, the amount the the individual either owes or is owed (their balance) will be updated.
 
-Main technologies used….
+<img width="508" alt="screen shot 2018-03-01 at 18 50 56" src="https://user-images.githubusercontent.com/25264577/37279625-3f2c9390-25e3-11e8-95ee-a21c5c19f247.png">
+
+The main technologies used for SPLITTN were:
 
 * Node 
 * Express 
@@ -35,23 +37,22 @@ Main technologies used….
 * Git
 * GitHuB
 
-###Creating SPLITTIN
+###Creating SPLITTN
 
-SPLITTIN was a group project put together by three genuine legends. For all of us this was our first experience of collaborating on GitHub.
+SPLITTN was a group project put together by three genuine legends. For all of us this was our first experience of collaborating on GitHub.
 
 Planning was therefore even more important than usual to avoid major issues, be they conflict error in the codebase or differences in artistic opinion.
 
-Planning masterpieces pic
+<img width="1431" alt="screen shot 2018-02-09 at 12 31 18" src="https://user-images.githubusercontent.com/25264577/37279810-c7d66162-25e3-11e8-8137-ab93fabed2f9.png">
 
-Trello pic
+COMMENTS ON MOBILE FIRST APPROACH/DESIGN
 
-Mobile first
-
-best bits of code (lol)
+COMMENTS ON BEST BITS OF CODE
 
 ###What extenstions to SPLITTIN could there be?
 
-Hook up bank details to make payments and settle the balances
-Currency conversion API
-Adding in comments/messaging functionality
-Smaller pictures
+Link up users bank details so they they can make payments and settle the balances with only a few clicks.
+
+Add in a currency conversion API so that bills in different currencies can be added.
+
+Enabling comments/messaging functionality so that the users can discuss the bills that have been added to the trip
