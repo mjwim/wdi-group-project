@@ -70,6 +70,27 @@ User
     password: 'password',
     passwordConfirmation: 'password',
     image: 'https://www.biography.com/.image/t_share/MTQ3NTI2OTA4NzY5MjE2MTI4/drake_photo_by_prince_williams_wireimage_getty_479503454.jpg'
+  },
+  {
+    username: 'BigShaq',
+    email: 'bigshaq@ga.co',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: 'https://www.funx.nl/images/2017/11/17_94_bigshaqnl.jpg'
+  },
+  {
+    username: 'Andy',
+    email: 'andy@ga.co',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: 'https://130513-375933-1-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2017/09/VJ-Andy.jpg'
+  },
+  {
+    username: 'Cynthia',
+    email: 'cynthia@ga.co',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: 'http://static1.businessinsider.com/image/4fe4978b69bedd0729000008-480/cynthia-montgomery-harvard-business-school.jpg'
   }
   ])
   .then((users) => {
