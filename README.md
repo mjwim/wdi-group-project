@@ -2,11 +2,11 @@
 
 ###What is SPLITTN
 
-SPLITTN is an app that allows you to set up a holiday with friends and keep track of bills that individuals have paid for on behalf of the whole group.
- 
-During the trip you can upload bills and tag them to the place where they were incurred. You can then see how much you have spent as a group, how much you have spent as an induividual and whether you owe your friends or they owe you.
+SPLITTIN is an app that allows you to set up a holiday with your friends and keep track of the bills that individuals have paid for on behalf of the whole group.
 
-Only those on the trip can see the details of the bills paid.
+During the trip you can upload your bills and tag them to the place where they were incurred. You can then see how much you have spent as a group or as an individual and whether you owe your friends money or vice versa.
+
+Only those that are part of a particular trip, can see the details of the bills paid.
 
 ###How to use
 
@@ -26,10 +26,10 @@ Additionally, the amount the the individual either owes or is owed (their balanc
 
 The main technologies used for SPLITTN were:
 
-* Node 
-* Express 
-* Javascript 
-* ES6 
+* Node
+* Express
+* Javascript
+* ES6
 * Angular
 * Angular Charts
 * Google Maps API
