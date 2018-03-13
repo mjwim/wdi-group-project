@@ -6,7 +6,7 @@ const trips       = require('../controllers/trips');
 const users       = require('../controllers/users');
 
 // Routes go here
-router.route('/')
+router.route('/home')
   .get(trips.home);
 
 router.route('/register')
