@@ -1,4 +1,4 @@
-<img width="639" alt="screen shot 2018-02-09 at 13 08 29" src="https://user-images.githubusercontent.com/25264577/37279711-795844f6-25e3-11e8-82bc-43bee1388fd0.png">
+<img width="481" alt="screen shot 2018-03-26 at 13 23 00" src="https://user-images.githubusercontent.com/25264577/37906084-e88d19e4-30f8-11e8-8252-da3661716400.png">
 
 ### What is SPLITN
 
