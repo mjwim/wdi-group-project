@@ -1,14 +1,14 @@
 <img width="639" alt="screen shot 2018-02-09 at 13 08 29" src="https://user-images.githubusercontent.com/25264577/37279711-795844f6-25e3-11e8-82bc-43bee1388fd0.png">
 
-###What is SPLITTN
+### What is SPLITN
 
-SPLITTIN is an app that allows you to set up a holiday with your friends and keep track of the bills that individuals have paid for on behalf of the whole group.
+SPLITN is an app that allows you to set up a holiday with your friends and keep track of the bills that individuals have paid for on behalf of the whole group.
 
 During the trip you can upload your bills and tag them to the place where they were incurred. You can then see how much you have spent as a group or as an individual and whether you owe your friends money or vice versa.
 
 Only those that are part of a particular trip, can see the details of the bills paid.
 
-###How to use
+### How to use
 
 An user can register/login and then view their profile page, which will show the trips that they either created or have been invited on.
 
@@ -24,7 +24,7 @@ Additionally, the amount the the individual either owes or is owed (their balanc
 
 <img width="508" alt="screen shot 2018-03-01 at 18 50 56" src="https://user-images.githubusercontent.com/25264577/37279625-3f2c9390-25e3-11e8-95ee-a21c5c19f247.png">
 
-The main technologies used for SPLITTN were:
+The main technologies used for SPLITN were:
 
 * Node
 * Express
@@ -37,9 +37,9 @@ The main technologies used for SPLITTN were:
 * Git
 * GitHuB
 
-###Creating SPLITTN
+### Creating SPLITN
 
-SPLITTN was a group project put together by three genuine legends. For all of us this was our first experience of collaborating on GitHub.
+SPLITN was a group project put together by three genuine legends. For all of us this was our first experience of collaborating on GitHub.
 
 Planning was therefore even more important than usual to avoid major issues, be they conflict error in the codebase or differences in artistic opinion.
 
@@ -49,7 +49,7 @@ COMMENTS ON MOBILE FIRST APPROACH/DESIGN
 
 COMMENTS ON BEST BITS OF CODE
 
-###What extenstions to SPLITTIN could there be?
+### What extenstions to SPLITN could there be?
 
 Link up users bank details so they they can make payments and settle the balances with only a few clicks.
 
