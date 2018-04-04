@@ -45,9 +45,12 @@ Planning was therefore even more important than usual to avoid major issues, be 
 
 <img width="1431" alt="screen shot 2018-02-09 at 12 31 18" src="https://user-images.githubusercontent.com/25264577/37279810-c7d66162-25e3-11e8-8137-ab93fabed2f9.png">
 
-COMMENTS ON MOBILE FIRST APPROACH/DESIGN
+As a group we decided to go for a mobile-first approach towards the design of SPLITN, as we felt that our users would primarily use SPLITN on their trips, where they would mainly be using their mobile devices.
 
-COMMENTS ON BEST BITS OF CODE
+In addition we all had experience of styling for web browsers first in our previous projects and noticed the comparative difficulty of making a web site responsive.
+
+<img width="1035" alt="screen shot 2018-04-04 at 15 46 49" src="https://user-images.githubusercontent.com/33283923/38317197-61088c50-3824-11e8-8fe7-25bbf3ec1e4c.png">
+
 
 ### What extenstions to SPLITN could there be?
 
