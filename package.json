@@ -52,7 +52,7 @@
     }
   },
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.13.2",
     "express": "^4.14.0",
