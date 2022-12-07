@@ -55,7 +55,7 @@
     "bcrypt": "^1.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.13.2",
-    "express": "^4.14.0",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.1",
     "morgan": "~1.9.1"
